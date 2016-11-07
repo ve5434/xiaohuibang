@@ -38,6 +38,8 @@
     [self.navigationItem setRightBarButtonItem:sendMomentsButton];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    // 创建内容滑动视图
+    [self _createContent];
     
 }
 
@@ -70,10 +72,11 @@
         button.tag = 1500 + i;
         [button setTitle:titleArr[i] forState:UIControlStateNormal];
         [button setBackgroundColor:[UIColor whiteColor]];
+        [button setBackgroundImage:[self createImageWithColor:[UIColor colorWithRed:221/255.0 green:221/255.0 blue:221/255.0 alpha:1]] forState:UIControlStateHighlighted];
         [button setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
                      forState:UIControlStateNormal];
-        button.layer.borderWidth = 0.5;
-        button.layer.borderColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1].CGColor;
+//        button.layer.borderWidth = 0.5;
+//        button.layer.borderColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1].CGColor;
         if (i == 0) {
             button.frame = CGRectMake(0, 0, kScreenWidth, buttonHeight);
         } else if (i == 1) {
@@ -114,14 +117,36 @@
     } else if (buttonTag == 2) {
         NSLog(@"从手机相册获取");
     } else {
-        NSLog(@"取消");
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
     }
 
 }
 
+// 颜色转换成image
+-(UIImage *)createImageWithColor:(UIColor*) color
+{
+    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
 
+#pragma mark - 创建内容视图
+- (void)_createContent {
 
+    
 
+}
 
 
 

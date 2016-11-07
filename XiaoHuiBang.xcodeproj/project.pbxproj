@@ -10,6 +10,8 @@
 		049BD7FF1DD02ACF00957AF4 /* icon_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD7FD1DD02ACF00957AF4 /* icon_camera@2x.png */; };
 		049BD8001DD02ACF00957AF4 /* icon_camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD7FE1DD02ACF00957AF4 /* icon_camera@3x.png */; };
 		049BD8081DD0430F00957AF4 /* MomentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BD8071DD0430F00957AF4 /* MomentView.m */; };
+		049BD80B1DD07CAA00957AF4 /* momentBanner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8091DD07CAA00957AF4 /* momentBanner@2x.png */; };
+		049BD80C1DD07CAA00957AF4 /* momentBanner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD80A1DD07CAA00957AF4 /* momentBanner@3x.png */; };
 		DB7F902B3A8335807EDD4AA1 /* libPods-XiaoHuiBang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */; };
 		F30804231DA5F78E00859781 /* SetMessageToInformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30804221DA5F78E00859781 /* SetMessageToInformViewController.m */; };
 		F30804261DA5FCFE00859781 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30804241DA5FCFE00859781 /* logo@2x.png */; };
@@ -256,6 +258,8 @@
 		049BD7FE1DD02ACF00957AF4 /* icon_camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera@3x.png"; sourceTree = "<group>"; };
 		049BD8061DD0430F00957AF4 /* MomentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentView.h; sourceTree = "<group>"; };
 		049BD8071DD0430F00957AF4 /* MomentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentView.m; sourceTree = "<group>"; };
+		049BD8091DD07CAA00957AF4 /* momentBanner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "momentBanner@2x.png"; sourceTree = "<group>"; };
+		049BD80A1DD07CAA00957AF4 /* momentBanner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "momentBanner@3x.png"; sourceTree = "<group>"; };
 		8F5B587656139CFD557E4D67 /* Pods-XiaoHuiBang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.release.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.release.xcconfig"; sourceTree = "<group>"; };
 		A01A17214919735FFEBF2768 /* Pods-XiaoHuiBang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.debug.xcconfig"; sourceTree = "<group>"; };
 		D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XiaoHuiBang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -970,6 +974,8 @@
 		F36C6DD51D992A9D00CB7E24 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				049BD8091DD07CAA00957AF4 /* momentBanner@2x.png */,
+				049BD80A1DD07CAA00957AF4 /* momentBanner@3x.png */,
 				049BD7FD1DD02ACF00957AF4 /* icon_camera@2x.png */,
 				049BD7FE1DD02ACF00957AF4 /* icon_camera@3x.png */,
 				F334F4B31DCC775A002CFBBC /* icon_bangyouquan_selected@2x.png */,
@@ -1375,6 +1381,7 @@
 				F3E3E9671D9B71D900E69300 /* ToResetPswViewController.xib in Resources */,
 				F334F4BA1DCC775A002CFBBC /* icon_bangyouquan_unselected@3x.png in Resources */,
 				F3ACCB431DC9C32B002355AC /* saoyisao@2x.png in Resources */,
+				049BD80B1DD07CAA00957AF4 /* momentBanner@2x.png in Resources */,
 				F33F89931D9E4EA600FB0F70 /* icon_massage@2x.png in Resources */,
 				F3EBC4921D9A471D00E93C02 /* icon_password_show@3x.png in Resources */,
 				F33F89951D9E4EA600FB0F70 /* icon_Security@2x.png in Resources */,
@@ -1413,6 +1420,7 @@
 				F35DB80E1DA6310400AF5A31 /* app icon@3x.png in Resources */,
 				F33F899B1D9E510100FB0F70 /* icon_woman@2x.png in Resources */,
 				F317F3FB1DA7500800DB5F70 /* icon_mute@3x.png in Resources */,
+				049BD80C1DD07CAA00957AF4 /* momentBanner@3x.png in Resources */,
 				F334F4A61DCC5FB5002CFBBC /* pic_add@2x.png in Resources */,
 				F3A0E0201DB757A000E9F12C /* CellGraySelected@2x.png in Resources */,
 				F334F4B81DCC775A002CFBBC /* icon_bangyouquan_selected@3x.png in Resources */,
