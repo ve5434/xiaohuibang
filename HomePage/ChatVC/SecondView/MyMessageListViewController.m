@@ -12,12 +12,9 @@
 
 #import "FTPopOverMenu.h"
 
-#import "AGroupChatViewController.h"
 #import "AddFriendViewController.h"
 
 #import "AddFridensDataViewController.h"
-
-#import "QRCodeViewController.h"
 
 #import "RCDContactSelectedTableViewController.h"
 
@@ -32,6 +29,8 @@
 #import "UITabBar+badge.h"
 
 #import "AFriendRequestListViewController.h"
+
+#import "UsersToTheirOwnGroupViewController.h"
 
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
@@ -532,10 +531,6 @@
                            switch (selectedIndex) {
                                case 0:
                                {
-                                   //                                   AGroupChatViewController *aGroupChatVC = [[AGroupChatViewController alloc] init];
-                                   //                                   aGroupChatVC.hidesBottomBarWhenPushed = YES;
-                                   //                                   [self.navigationController pushViewController:aGroupChatVC animated:YES];
-                                   
                                    RCDContactSelectedTableViewController *contactSelectedVC = [[RCDContactSelectedTableViewController alloc]init];
                                    contactSelectedVC.forCreatingGroup = YES;
                                    contactSelectedVC.isAllowsMultipleSelection = YES;
@@ -556,6 +551,13 @@
                                    EZQRCodeScanner *scanner = [[EZQRCodeScanner alloc] init];
                                    scanner.delegate = self;
                                    scanner.scanStyle = EZScanStyleNetGrid;
+                                   
+                                   UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+                                   title.text = @"扫描二维码";
+                                   title.textAlignment = NSTextAlignmentCenter;
+                                   title.textColor = [UIColor whiteColor];
+                                   scanner.navigationItem.titleView = title;
+                                   
                                    scanner.hidesBottomBarWhenPushed = YES;
 //                                   scanner.showButton = NO;
                                    [self.navigationController pushViewController:scanner animated:YES];
@@ -617,36 +619,15 @@
             KMLog(@"Error:%@",error);
         }];
     } else if ([typeStr isEqualToString:@"group"]) {
-        NSString *urlStr = [NSString stringWithFormat:@"%@%@",XBaseURL,@"group/group_add"];
+//                              @"id":[diccc objectForKey:@"id"],
+//                              @"user_id":[USER_D objectForKey:@"user_id"]
         
-        NSDictionary *dic = @{
-                              @"id":[diccc objectForKey:@"id"],
-                              @"user_id":[USER_D objectForKey:@"user_id"]
-                              };
-        NSLog(@"%@",dic);
-        
-        AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-        session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-        session.requestSerializer.timeoutInterval = 5.0;
-        [session POST:urlStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // your navigation controller action goes here
             
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"success:%@",responseObject);
-            
-            NSLog(@"%@",[MyTool dictionaryToJson:responseObject]);
-            
-            NSString *msgStr = [responseObject objectForKey:@"msg"];
-            NSNumber *msg = (NSNumber *)msgStr;
-            if ([msg isEqualToNumber:@1]) {
-                
-                [SVProgressHUD dismiss];
-            } else {
-                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-                [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"data"]];
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            KMLog(@"Error:%@",error);
-        }];
+            UsersToTheirOwnGroupViewController *userGroupVC = [[UsersToTheirOwnGroupViewController alloc] initWithGroupId:[diccc objectForKey:@"id"]];
+            [self.navigationController pushViewController:userGroupVC animated:YES];
+        });
     }
 }
 

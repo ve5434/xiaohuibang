@@ -13,12 +13,13 @@
 		049BD80B1DD07CAA00957AF4 /* momentBanner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8091DD07CAA00957AF4 /* momentBanner@2x.png */; };
 		049BD80C1DD07CAA00957AF4 /* momentBanner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD80A1DD07CAA00957AF4 /* momentBanner@3x.png */; };
 		DB7F902B3A8335807EDD4AA1 /* libPods-XiaoHuiBang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */; };
+		F306DE831DD096360034BA65 /* UsersToTheirOwnGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F306DE811DD096360034BA65 /* UsersToTheirOwnGroupViewController.m */; };
+		F306DE841DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F306DE821DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib */; };
 		F30804231DA5F78E00859781 /* SetMessageToInformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30804221DA5F78E00859781 /* SetMessageToInformViewController.m */; };
 		F30804261DA5FCFE00859781 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30804241DA5FCFE00859781 /* logo@2x.png */; };
 		F30804271DA5FCFE00859781 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30804251DA5FCFE00859781 /* logo@3x.png */; };
 		F30E92791DAE1CDA00EDF97B /* MessageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E92771DAE1CDA00EDF97B /* MessageListTableViewCell.m */; };
 		F30E927A1DAE1CDA00EDF97B /* MessageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30E92781DAE1CDA00EDF97B /* MessageListTableViewCell.xib */; };
-		F313E6BA1DB6194A005111E0 /* AGroupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F313E6B91DB6194A005111E0 /* AGroupChatViewController.m */; };
 		F313E6C61DB62544005111E0 /* MultiSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F313E6BB1DB62544005111E0 /* MultiSelectTableViewCell.xib */; };
 		F313E6C71DB62544005111E0 /* MultiSelectSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F313E6BD1DB62544005111E0 /* MultiSelectSearchResultTableViewCell.m */; };
 		F313E6C81DB62544005111E0 /* MultiSelectSearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F313E6BE1DB62544005111E0 /* MultiSelectSearchResultTableViewCell.xib */; };
@@ -179,8 +180,6 @@
 		F3ACCB3F1DC9C1F2002355AC /* StitchingImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ACCB3E1DC9C1F2002355AC /* StitchingImage.m */; };
 		F3ACCB421DC9C32B002355AC /* saoyisao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3ACCB401DC9C32B002355AC /* saoyisao@3x.png */; };
 		F3ACCB431DC9C32B002355AC /* saoyisao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3ACCB411DC9C32B002355AC /* saoyisao@2x.png */; };
-		F3ACCB471DCA0010002355AC /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ACCB451DCA0010002355AC /* QRCodeViewController.m */; };
-		F3ACCB481DCA0010002355AC /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ACCB461DCA0010002355AC /* QRCodeViewController.xib */; };
 		F3ACCB591DCA1EF5002355AC /* RCDGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ACCB551DCA1EF5002355AC /* RCDGroupViewController.m */; };
 		F3ACCB5A1DCA1EF5002355AC /* RCDGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ACCB571DCA1EF5002355AC /* RCDGroupTableViewCell.m */; };
 		F3B73DF11DC87FDB00407EEE /* RCDUIBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B73DF01DC87FDB00407EEE /* RCDUIBarButtonItem.m */; };
@@ -263,6 +262,9 @@
 		8F5B587656139CFD557E4D67 /* Pods-XiaoHuiBang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.release.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.release.xcconfig"; sourceTree = "<group>"; };
 		A01A17214919735FFEBF2768 /* Pods-XiaoHuiBang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.debug.xcconfig"; sourceTree = "<group>"; };
 		D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XiaoHuiBang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F306DE801DD096360034BA65 /* UsersToTheirOwnGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersToTheirOwnGroupViewController.h; path = ChatVC/SecondView/UsersToTheirOwnGroupViewController.h; sourceTree = "<group>"; };
+		F306DE811DD096360034BA65 /* UsersToTheirOwnGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersToTheirOwnGroupViewController.m; path = ChatVC/SecondView/UsersToTheirOwnGroupViewController.m; sourceTree = "<group>"; };
+		F306DE821DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UsersToTheirOwnGroupViewController.xib; path = ChatVC/SecondView/UsersToTheirOwnGroupViewController.xib; sourceTree = "<group>"; };
 		F30804211DA5F78E00859781 /* SetMessageToInformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetMessageToInformViewController.h; path = MyPersonageVC/SecondView/ThirdView/NotificationSettingView/SetMessageToInformViewController.h; sourceTree = "<group>"; };
 		F30804221DA5F78E00859781 /* SetMessageToInformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetMessageToInformViewController.m; path = MyPersonageVC/SecondView/ThirdView/NotificationSettingView/SetMessageToInformViewController.m; sourceTree = "<group>"; };
 		F30804241DA5FCFE00859781 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "Image/logo@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -270,8 +272,6 @@
 		F30E92761DAE1CDA00EDF97B /* MessageListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListTableViewCell.h; sourceTree = "<group>"; };
 		F30E92771DAE1CDA00EDF97B /* MessageListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListTableViewCell.m; sourceTree = "<group>"; };
 		F30E92781DAE1CDA00EDF97B /* MessageListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListTableViewCell.xib; sourceTree = "<group>"; };
-		F313E6B81DB6194A005111E0 /* AGroupChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGroupChatViewController.h; path = ChatVC/SecondView/AGroupChatViewController.h; sourceTree = "<group>"; };
-		F313E6B91DB6194A005111E0 /* AGroupChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGroupChatViewController.m; path = ChatVC/SecondView/AGroupChatViewController.m; sourceTree = "<group>"; };
 		F313E6BB1DB62544005111E0 /* MultiSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiSelectTableViewCell.xib; sourceTree = "<group>"; };
 		F313E6BC1DB62544005111E0 /* MultiSelectSearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectSearchResultTableViewCell.h; sourceTree = "<group>"; };
 		F313E6BD1DB62544005111E0 /* MultiSelectSearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSearchResultTableViewCell.m; sourceTree = "<group>"; };
@@ -510,9 +510,6 @@
 		F3ACCB3E1DC9C1F2002355AC /* StitchingImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StitchingImage.m; sourceTree = "<group>"; };
 		F3ACCB401DC9C32B002355AC /* saoyisao@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saoyisao@3x.png"; sourceTree = "<group>"; };
 		F3ACCB411DC9C32B002355AC /* saoyisao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "saoyisao@2x.png"; sourceTree = "<group>"; };
-		F3ACCB441DCA0010002355AC /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
-		F3ACCB451DCA0010002355AC /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
-		F3ACCB461DCA0010002355AC /* QRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
 		F3ACCB551DCA1EF5002355AC /* RCDGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDGroupViewController.m; sourceTree = "<group>"; };
 		F3ACCB561DCA1EF5002355AC /* RCDGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDGroupViewController.h; sourceTree = "<group>"; };
 		F3ACCB571DCA1EF5002355AC /* RCDGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDGroupTableViewCell.m; sourceTree = "<group>"; };
@@ -848,8 +845,6 @@
 				F3B763161DC0B37B009619DA /* MyContactViewController.m */,
 				F3B763181DC0B9FA009619DA /* RCDContactTableViewCell.h */,
 				F3B763191DC0B9FA009619DA /* RCDContactTableViewCell.m */,
-				F313E6B81DB6194A005111E0 /* AGroupChatViewController.h */,
-				F313E6B91DB6194A005111E0 /* AGroupChatViewController.m */,
 				F3A0E0281DB761B300E9F12C /* GroupOfNewsViewController.h */,
 				F3A0E0291DB761B300E9F12C /* GroupOfNewsViewController.m */,
 				F317F40F1DA7A96400DB5F70 /* AddFriendViewController.h */,
@@ -862,9 +857,9 @@
 				F39AFE8F1DAF94020045C323 /* FriendsNoteViewController.m */,
 				F39AFE8B1DAF90430045C323 /* FriendsValidationViewController.h */,
 				F39AFE8C1DAF90430045C323 /* FriendsValidationViewController.m */,
-				F3ACCB441DCA0010002355AC /* QRCodeViewController.h */,
-				F3ACCB451DCA0010002355AC /* QRCodeViewController.m */,
-				F3ACCB461DCA0010002355AC /* QRCodeViewController.xib */,
+				F306DE801DD096360034BA65 /* UsersToTheirOwnGroupViewController.h */,
+				F306DE811DD096360034BA65 /* UsersToTheirOwnGroupViewController.m */,
+				F306DE821DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib */,
 				F3EC35821DBA0ABE00F350CA /* ChatView */,
 				F39494861DB0C91500BE3E51 /* AddressBook */,
 				F317F3F11DA74AB200DB5F70 /* Cell */,
@@ -1439,7 +1434,6 @@
 				F35DB80D1DA6310400AF5A31 /* app icon@2x.png in Resources */,
 				F39494851DB08F7300BE3E51 /* 未标题-1.png in Resources */,
 				F30E927A1DAE1CDA00EDF97B /* MessageListTableViewCell.xib in Resources */,
-				F3ACCB481DCA0010002355AC /* QRCodeViewController.xib in Resources */,
 				F32E4D161D98D49B0034BBB8 /* Main.storyboard in Resources */,
 				F317F40B1DA7828F00DB5F70 /* icon_group-chat@3x.png in Resources */,
 				F334F4951DCC53E0002CFBBC /* user_67.png in Resources */,
@@ -1448,6 +1442,7 @@
 				F317F4081DA7828F00DB5F70 /* icon_add@2x.png in Resources */,
 				F334F4A81DCC5FB5002CFBBC /* pic_delete@2x.png in Resources */,
 				F3703BBA1DBDFD38000508B1 /* AB5C9E0319D66CB8A938884D6D960D34.png in Resources */,
+				F306DE841DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib in Resources */,
 				049BD8001DD02ACF00957AF4 /* icon_camera@3x.png in Resources */,
 				F34BC84C1DCB13D000C1BEFA /* icon_app.png in Resources */,
 				F3E91FA31DA5E9860066D6D6 /* pic_bg@3x.png in Resources */,
@@ -1605,7 +1600,6 @@
 				F39494A71DB0E0B500BE3E51 /* AddressBookViewController.m in Sources */,
 				F317F4111DA7A96400DB5F70 /* AddFriendViewController.m in Sources */,
 				F39AFE901DAF94020045C323 /* FriendsNoteViewController.m in Sources */,
-				F313E6BA1DB6194A005111E0 /* AGroupChatViewController.m in Sources */,
 				F3E3E9661D9B71D900E69300 /* ToResetPswViewController.m in Sources */,
 				F313E6CF1DB62568005111E0 /* UIView+Convenience.m in Sources */,
 				F334F4AD1DCC631B002CFBBC /* MyQRCodeViewController.m in Sources */,
@@ -1631,12 +1625,12 @@
 				F3ACCB591DCA1EF5002355AC /* RCDGroupViewController.m in Sources */,
 				F32E4D131D98D49B0034BBB8 /* ViewController.m in Sources */,
 				F39AFE871DAF6BA20045C323 /* AddFridensDataViewController.m in Sources */,
-				F3ACCB471DCA0010002355AC /* QRCodeViewController.m in Sources */,
 				F36DEC491DBB125400AEFE62 /* AFHttpTool.m in Sources */,
 				F35C03571DC3593B003D9613 /* RCDGroupMembersTableViewController.m in Sources */,
 				F32E4D101D98D49B0034BBB8 /* AppDelegate.m in Sources */,
 				F3E3E9611D9B6D0600E69300 /* ForgetSendCodeViewController.m in Sources */,
 				F3E3E9571D9B68BB00E69300 /* SetHeadNameViewController.m in Sources */,
+				F306DE831DD096360034BA65 /* UsersToTheirOwnGroupViewController.m in Sources */,
 				F32E4D0D1D98D49B0034BBB8 /* main.m in Sources */,
 				F39494821DB089DF00BE3E51 /* AddressBookTableViewCell.m in Sources */,
 				F39AFE8D1DAF90430045C323 /* FriendsValidationViewController.m in Sources */,

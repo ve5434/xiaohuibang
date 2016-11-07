@@ -10,4 +10,13 @@
 
 @interface UsersToTheirOwnGroupViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *groupHeadImg;
+@property (weak, nonatomic) IBOutlet UILabel *groupNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *groupNumberLab;
+@property (weak, nonatomic) IBOutlet UIButton *addGroupBtn;
+
+@property (nonatomic, retain) NSString *groupId;
+
+- (id)initWithGroupId:(NSString *)groupId;
+
 @end
