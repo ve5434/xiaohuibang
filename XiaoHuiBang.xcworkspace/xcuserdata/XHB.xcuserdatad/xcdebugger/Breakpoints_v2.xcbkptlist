@@ -26,22 +26,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomePage/ChatVC/SecondView/MyMessageListViewController.m"
-            timestampString = "500205214.61746"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "648"
-            endingLineNumber = "648"
-            landmarkName = "-scannerView:outputString:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomePage/ChatVC/SecondView/MyMessageListViewController.m"
             timestampString = "500205333.949936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
