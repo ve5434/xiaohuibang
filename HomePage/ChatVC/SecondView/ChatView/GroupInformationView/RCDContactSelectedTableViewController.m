@@ -261,12 +261,13 @@
             KMLog(@"%@",userPsw.text);
             
             NSMutableArray *imageArr = [NSMutableArray array];
-            
-            [imageArr addObject:[USER_D objectForKey:@"head_img"]];
+//            NSLog(@"%@",[USER_D objectForKey:@"head_img"]);
+            [imageArr addObject:[USER_D objectForKey:@"userPortraitUri"]];
             
             for (RCUserInfo *user in seletedUsers) {
                 [imageArr addObject:user.portraitUri];
             }
+            
             NSMutableArray *imageViews = [[NSMutableArray alloc] init];
             for (int index = 1; index <= imageArr.count; index++) {
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];

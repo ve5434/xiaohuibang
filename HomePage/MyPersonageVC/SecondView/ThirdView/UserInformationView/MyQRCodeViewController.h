@@ -15,4 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sexLab;
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImg;
 
+@property (nonatomic, copy) NSString *status;
+
+@property (nonatomic, strong) NSString *GroupId;
+
+- (id)initWithUserOrGroupStatus:(NSString *)status;
+
 @end

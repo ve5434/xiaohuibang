@@ -165,7 +165,6 @@
     
     NSLog(@"%@~!!!!!!~!~!~!~~~~~%@",_groupInfo,self.targetId);
     
-    
     if (_groupInfo == nil) {
         settingsVC.Group = [[RCDataBaseManager shareInstance] getGroupByGroupId:self.targetId];
     } else {

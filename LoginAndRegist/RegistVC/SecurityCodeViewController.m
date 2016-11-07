@@ -13,7 +13,7 @@
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 
-@interface SecurityCodeViewController ()
+@interface SecurityCodeViewController () <UITextFieldDelegate>
 {
     NSString *_againCodeStr;
 }
@@ -151,6 +151,18 @@
         }
     });
     dispatch_resume(_timer);
+}
+
+//点击return 按钮 去掉
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+//点击屏幕空白处去掉键盘
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.codeTF resignFirstResponder];
 }
 
 - (void)goBackToRegistViewController:(UIButton *)button {

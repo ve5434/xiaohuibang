@@ -14,7 +14,7 @@
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 
-@interface RegistViewController ()
+@interface RegistViewController () <UITextFieldDelegate>
 
 @end
 
@@ -92,6 +92,18 @@
 - (IBAction)registrationAgreementClick:(UIButton *)sender {
     RegistAgreementViewController *registAgreementVC = [[RegistAgreementViewController alloc] init];
     [self presentViewController:registAgreementVC animated:YES completion:nil];
+}
+
+//点击return 按钮 去掉
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+//点击屏幕空白处去掉键盘
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.registPhoneNumTF resignFirstResponder];
 }
 
 - (void)goBackToRegistViewController:(UIButton *)button {

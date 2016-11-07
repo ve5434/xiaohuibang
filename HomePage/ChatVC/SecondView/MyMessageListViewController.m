@@ -266,7 +266,6 @@
                      }];
                 }
             }
-        
     } else {
         RCDUserInfo *user = (RCDUserInfo *)model.extend;
         userName = user.name;
@@ -584,36 +583,71 @@
     
     NSDictionary *diccc = [MyTool toArrayOrNSDictionary:[output dataUsingEncoding:NSASCIIStringEncoding]];
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",XBaseURL,XUserQueryFriendsURL];
+    NSString *typeStr = [diccc objectForKey:@"type"];
     
-    NSDictionary *dic = @{
-                          @"mobile":[diccc objectForKey:@"mobile"],
-                          };
-    
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-    session.requestSerializer.timeoutInterval = 5.0;
-    [session POST:urlStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    if ([typeStr isEqualToString:@"user"]) {
+        NSString *urlStr = [NSString stringWithFormat:@"%@%@",XBaseURL,XUserQueryFriendsURL];
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"success:%@",responseObject);
+        NSDictionary *dic = @{
+                              @"mobile":[diccc objectForKey:@"mobile"],
+                              };
         
-        KMLog(@"%@",[MyTool dictionaryToJson:responseObject]);
-        
-        NSString *msgStr = [responseObject objectForKey:@"msg"];
-        NSNumber *msg = (NSNumber *)msgStr;
-        if ([msg isEqualToNumber:@1]) {
+        AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+        session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+        session.requestSerializer.timeoutInterval = 5.0;
+        [session POST:urlStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
             
-            AddFridensDataViewController *addFriendsDataVC = [[AddFridensDataViewController alloc] initWithUserData:[responseObject objectForKey:@"data"]];
-            [self.navigationController pushViewController:addFriendsDataVC animated:YES];
-            [SVProgressHUD dismiss];
-        } else {
-            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-            [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"data"]];
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        KMLog(@"Error:%@",error);
-    }];
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"success:%@",responseObject);
+            
+            KMLog(@"%@",[MyTool dictionaryToJson:responseObject]);
+            
+            NSString *msgStr = [responseObject objectForKey:@"msg"];
+            NSNumber *msg = (NSNumber *)msgStr;
+            if ([msg isEqualToNumber:@1]) {
+                
+                AddFridensDataViewController *addFriendsDataVC = [[AddFridensDataViewController alloc] initWithUserData:[responseObject objectForKey:@"data"]];
+                [self.navigationController pushViewController:addFriendsDataVC animated:YES];
+                [SVProgressHUD dismiss];
+            } else {
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+                [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"data"]];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            KMLog(@"Error:%@",error);
+        }];
+    } else if ([typeStr isEqualToString:@"group"]) {
+        NSString *urlStr = [NSString stringWithFormat:@"%@%@",XBaseURL,@"group/group_add"];
+        
+        NSDictionary *dic = @{
+                              @"id":[diccc objectForKey:@"id"],
+                              @"user_id":[USER_D objectForKey:@"user_id"]
+                              };
+        NSLog(@"%@",dic);
+        
+        AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+        session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+        session.requestSerializer.timeoutInterval = 5.0;
+        [session POST:urlStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"success:%@",responseObject);
+            
+            NSLog(@"%@",[MyTool dictionaryToJson:responseObject]);
+            
+            NSString *msgStr = [responseObject objectForKey:@"msg"];
+            NSNumber *msg = (NSNumber *)msgStr;
+            if ([msg isEqualToNumber:@1]) {
+                
+                [SVProgressHUD dismiss];
+            } else {
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+                [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"data"]];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            KMLog(@"Error:%@",error);
+        }];
+    }
 }
 
 - (void)segmentClick:(UISegmentedControl *)segment {

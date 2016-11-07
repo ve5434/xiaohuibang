@@ -86,20 +86,20 @@
  *  @param groupId  群组ID.
  *  @param completion 获取完成调用的BLOCK.
  */
-//- (void)getUserInfoWithUserId:(NSString *)userId
-//                      inGroup:(NSString *)groupId
-//                   completion:(void (^)(RCUserInfo *userInfo))completion {
-//    //在这里查询该group内的群名片信息，如果能查到，调用completion返回。如果查询不到也一定要调用completion(nil)
-//    if ([groupId isEqualToString:@"22"] && [userId isEqualToString:@"30806"]) {
-//        completion([[RCUserInfo alloc] initWithUserId:@"30806"
-//                                                 name:@"我在22群中的名片"
-//                                             portrait:nil]);
-//    } else {
-//        completion(
-//                   nil); //融云demo中暂时没有实现，以后会添加上该功能。app也可以自己实现该功能。
-//    }
-//}
-//
+- (void)getUserInfoWithUserId:(NSString *)userId
+                      inGroup:(NSString *)groupId
+                   completion:(void (^)(RCUserInfo *userInfo))completion {
+    //在这里查询该group内的群名片信息，如果能查到，调用completion返回。如果查询不到也一定要调用completion(nil)
+    if ([groupId isEqualToString:@"22"] && [userId isEqualToString:@"30806"]) {
+        completion([[RCUserInfo alloc] initWithUserId:@"30806"
+                                                 name:@"我在22群中的名片"
+                                             portrait:nil]);
+    } else {
+        completion(
+                   nil); //融云demo中暂时没有实现，以后会添加上该功能。app也可以自己实现该功能。
+    }
+}
+
 - (void)getAllMembersOfGroup:(NSString *)groupId
                       result:(void (^)(NSArray *userIdList))resultBlock {
     [[RCDHttpTool shareInstance] getGroupMembersWithGroupId:groupId

@@ -196,7 +196,7 @@
         UserSexViewController *userSexVC = [[UserSexViewController alloc] initWithUserSex:_userSexStr];
         [self.navigationController pushViewController:userSexVC animated:YES];
     } else {
-        MyQRCodeViewController *myCodeVC = [[MyQRCodeViewController alloc] init];
+        MyQRCodeViewController *myCodeVC = [[MyQRCodeViewController alloc] initWithUserOrGroupStatus:@"1"];
         [self.navigationController pushViewController:myCodeVC animated:YES];
     }
 }

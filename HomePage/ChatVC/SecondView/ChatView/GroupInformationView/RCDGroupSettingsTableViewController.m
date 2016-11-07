@@ -23,6 +23,8 @@
 #import "UIColor+RCColor.h"
 #import "RCDUserInfoManager.h"
 
+#import "MyQRCodeViewController.h"
+
 #define DEFAULTS [NSUserDefaults standardUserDefaults]
 #define ShareApplicationDelegate [[UIApplication sharedApplication] delegate]
 #define HEXCOLOR(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -647,7 +649,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             break;
             
         case 1:
-            rows = 2;
+            rows = 3;
             break;
             
         case 2:
@@ -703,8 +705,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 break;
             case 1:
                 [cell setCellStyle:DefaultStyle];
+                cell.leftLabel.text = @"群二维码";
+                cell.rightArrow.image = [UIImage imageNamed:@"图层-2"];
+                break;
+            case 2:
+                [cell setCellStyle:DefaultStyle];
                 cell.leftLabel.text = @"群公告";
                 break;
+            
             default:
                 break;
         }
@@ -764,17 +772,6 @@ heightForHeaderInSection:(NSInteger)section {
             
         case 1:{
             switch (indexPath.row) {
-//                case 0:
-//                {
-//                    if (isCreator == YES) {
-//                        [self chosePortrait];
-//                    }
-//                    else
-//                    {
-//                        [self showAlert:@"只有群主可以修改群组头像"];
-//                    }
-//                }break;
-                    
                 case 0:
                 {
                     if (isCreator == YES) {
@@ -792,6 +789,13 @@ heightForHeaderInSection:(NSInteger)section {
                 }break;
                     
                 case 1:
+                {
+                    MyQRCodeViewController *myCodeVC = [[MyQRCodeViewController alloc] initWithUserOrGroupStatus:@"2"];
+                    myCodeVC.GroupId = _Group.groupId;
+                    [self.navigationController pushViewController:myCodeVC animated:YES];
+                }break;
+                    
+                case 2:
                 {
                     if (isCreator == YES) {
                         RCDGroupAnnouncementViewController *vc = [[RCDGroupAnnouncementViewController alloc] init];

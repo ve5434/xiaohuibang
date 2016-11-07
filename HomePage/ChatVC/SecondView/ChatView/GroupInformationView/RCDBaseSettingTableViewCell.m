@@ -211,13 +211,13 @@
   
   [self.contentView
    addConstraints:[NSLayoutConstraint
-                   constraintsWithVisualFormat:@"H:[_rightArrow(8)]-10-|"
+                   constraintsWithVisualFormat:@"H:[_rightArrow(23)]-30-|"
                    options:0
                    metrics:nil
                    views:self.cellSubViews]];
   [self.contentView
    addConstraints:[NSLayoutConstraint
-                   constraintsWithVisualFormat:@"V:[_rightArrow(13)]"
+                   constraintsWithVisualFormat:@"V:[_rightArrow(22)]"
                    options:0
                    metrics:nil
                    views:self.cellSubViews]];
