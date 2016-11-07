@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeViewController">
+            <connections>
+                <outlet property="button" destination="mKE-Kv-pi1" id="Hn3-YF-Jl4"/>
+                <outlet property="lightButton" destination="6hU-vY-Yro" id="Rgz-Xz-1xA"/>
+                <outlet property="sanFrameView" destination="fpl-Tr-Rqp" id="oty-SU-DLX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Kv-pi1">
+                    <rect key="frame" x="127.5" y="488" width="120" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="mRA-An-LMO"/>
+                        <constraint firstAttribute="height" constant="40" id="mVZ-m4-b57"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <connections>
+                        <action selector="startScanner:" destination="-1" eventType="touchUpInside" id="1gV-ai-vFu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hU-vY-Yro">
+                    <rect key="frame" x="127.5" y="80" width="120" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="E1F-25-Pio"/>
+                        <constraint firstAttribute="width" constant="120" id="feA-Pa-OQG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <connections>
+                        <action selector="openSystemLight:" destination="-1" eventType="touchUpInside" id="FLz-So-usl"/>
+                        <action selector="startScanner:" destination="-1" eventType="touchUpInside" id="7IE-7s-K4N"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpl-Tr-Rqp">
+                    <rect key="frame" x="37.5" y="150" width="300" height="300"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="GTz-S5-ifx"/>
+                        <constraint firstAttribute="height" constant="300" id="Ndv-Am-Yia"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mKE-Kv-pi1" firstAttribute="top" secondItem="fpl-Tr-Rqp" secondAttribute="bottom" constant="38" id="6RQ-9S-fSU"/>
+                <constraint firstItem="6hU-vY-Yro" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="92S-FZ-GlG"/>
+                <constraint firstItem="fpl-Tr-Rqp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="HAI-uC-55R"/>
+                <constraint firstItem="fpl-Tr-Rqp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ng7-QT-3Wd"/>
+                <constraint firstItem="mKE-Kv-pi1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aii-UE-vaV"/>
+                <constraint firstItem="6hU-vY-Yro" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="zYG-3p-AeC"/>
+            </constraints>
+            <point key="canvasLocation" x="-10" y="68"/>
+        </view>
+    </objects>
+</document>
