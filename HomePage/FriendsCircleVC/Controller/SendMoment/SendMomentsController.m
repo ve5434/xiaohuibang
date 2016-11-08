@@ -17,9 +17,11 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
 
 
-@interface SendMomentsController () <UITextViewDelegate, UIScrollViewDelegate> {
+@interface SendMomentsController () <UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource> {
 
-
+    UITableView *_tableView;
+    UITextView *_textView;  // 输入框
+    
 }
 
 @end
@@ -39,7 +41,6 @@
 
     [super viewDidAppear:animated];
     
-    _inputView.delegate = self;
     _scrollView.delegate = self;
 
 }
@@ -77,7 +78,12 @@
 #pragma mark - 创建子视图
 - (void)_createSubView {
 
-    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight*.48)
+                                              style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.scrollEnabled = NO;
+    [_backgroundView addSubview:_tableView];
 
 }
 
@@ -86,7 +92,7 @@
 - (void)cancelAction:(UIBarButtonItem *)button {
     
     // 先隐藏键盘，再dismiss
-    [_inputView endEditing:YES];
+    [_textView endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:^{
         // 缓存动态编辑的状态
     }];
@@ -99,7 +105,7 @@
     }
     
     // 先隐藏键盘，再dismiss
-    [_inputView endEditing:YES];
+    [_textView endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:^{
         // 开辟一个线程，并发布动态
     }];
@@ -127,15 +133,64 @@
 
 #pragma mark - scrollView代理方法
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-
-    [_inputView endEditing:YES];
+    
+    [_textView endEditing:YES];
 
 }
 
+#pragma mark - 表视图代理方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    return 4;
 
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                                   reuseIdentifier:@"cellID"];
+    if (indexPath.row == 0) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight*.3)];
+        _textView.text = @"记录我的生活";
+        _textView.font = [UIFont systemFontOfSize:17];
+        _textView.textColor = [UIColor lightGrayColor];
+        _textView.delegate = self;
+        [cell.contentView addSubview:_textView];
+    } else if (indexPath.row == 1) {
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
+        cell.imageView.image = [UIImage imageNamed:@"icon_open"];
+        cell.textLabel.text = @"谁可以看";
+        cell.detailTextLabel.text = @"公开";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else if (indexPath.row == 2) {
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        cell.imageView.image = [UIImage imageNamed:@"icon_@"];
+        cell.textLabel.text = @"提醒谁看";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else if (indexPath.row == 3) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        float buttonWidth = kScreenWidth/4;
+        for (int i = 0; i < 4; i++) {
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(buttonWidth*i, 0, buttonWidth, kScreenWidth*.06)];
+//            [button setImage:[UIImage imageNamed:<#(nonnull NSString *)#>] forState:<#(UIControlState)#>]
+        }
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.row == 0) {
+        return kScreenHeight*.3;
+    } else {
+        return kScreenHeight*.06;
+    }
+
+}
 
 
 

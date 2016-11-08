@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendMomentsController">
             <connections>
                 <outlet property="backgroundView" destination="Ynj-gw-kFK" id="feL-hD-pxZ"/>
-                <outlet property="inputView" destination="Ciq-Zv-IYB" id="z39-JJ-vox"/>
                 <outlet property="scrollView" destination="AzZ-8a-2f5" id="IyX-2m-KKZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,24 +26,9 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynj-gw-kFK">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
-                            <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="记录我的生活" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ciq-Zv-IYB" userLabel="inputView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="200" id="woV-3H-60j"/>
-                                    </constraints>
-                                    <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="Ciq-Zv-IYB" firstAttribute="top" secondItem="Ynj-gw-kFK" secondAttribute="top" id="01p-Ev-ffu"/>
-                                <constraint firstAttribute="trailing" secondItem="Ciq-Zv-IYB" secondAttribute="trailing" id="LZd-hu-Fy6"/>
                                 <constraint firstAttribute="height" constant="600" id="hi8-V0-l8v"/>
-                                <constraint firstItem="Ciq-Zv-IYB" firstAttribute="leading" secondItem="Ynj-gw-kFK" secondAttribute="leading" id="oAg-tt-8j3"/>
                             </constraints>
                         </view>
                     </subviews>
