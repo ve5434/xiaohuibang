@@ -26,6 +26,18 @@
 		049BD82F1DD1BF8300957AF4 /* icon_emoj@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD82D1DD1BF8300957AF4 /* icon_emoj@3x.png */; };
 		049BD8321DD1BFD900957AF4 /* icon_camera_b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8301DD1BFD800957AF4 /* icon_camera_b@2x.png */; };
 		049BD8331DD1BFD900957AF4 /* icon_camera_b@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8311DD1BFD800957AF4 /* icon_camera_b@3x.png */; };
+		049BD8381DD1CD6500957AF4 /* icon_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8341DD1CD6500957AF4 /* icon_press@2x.png */; };
+		049BD8391DD1CD6500957AF4 /* icon_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8351DD1CD6500957AF4 /* icon_press@3x.png */; };
+		049BD83A1DD1CD6500957AF4 /* icon_switchcamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8361DD1CD6500957AF4 /* icon_switchcamera@2x.png */; };
+		049BD83B1DD1CD6500957AF4 /* icon_switchcamera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8371DD1CD6500957AF4 /* icon_switchcamera@3x.png */; };
+		049BD8411DD1CEA200957AF4 /* FromCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BD83F1DD1CEA200957AF4 /* FromCameraController.m */; };
+		049BD8421DD1CEA200957AF4 /* FromCameraController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8401DD1CEA200957AF4 /* FromCameraController.xib */; };
+		049BD8451DD1D67C00957AF4 /* alpha50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8431DD1D67C00957AF4 /* alpha50@2x.png */; };
+		049BD8461DD1D67C00957AF4 /* alpha50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8441DD1D67C00957AF4 /* alpha50@3x.png */; };
+		049BD8491DD1D82200957AF4 /* nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8471DD1D82200957AF4 /* nav-bar@2x.png */; };
+		049BD84A1DD1D82200957AF4 /* nav-bar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8481DD1D82200957AF4 /* nav-bar@3x.png */; };
+		049BD84D1DD1DCDE00957AF4 /* point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD84B1DD1DCDE00957AF4 /* point@2x.png */; };
+		049BD84E1DD1DCDE00957AF4 /* point@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD84C1DD1DCDE00957AF4 /* point@3x.png */; };
 		DB7F902B3A8335807EDD4AA1 /* libPods-XiaoHuiBang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */; };
 		F306DE831DD096360034BA65 /* UsersToTheirOwnGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F306DE811DD096360034BA65 /* UsersToTheirOwnGroupViewController.m */; };
 		F306DE841DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F306DE821DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib */; };
@@ -287,6 +299,19 @@
 		049BD82D1DD1BF8300957AF4 /* icon_emoj@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_emoj@3x.png"; sourceTree = "<group>"; };
 		049BD8301DD1BFD800957AF4 /* icon_camera_b@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera_b@2x.png"; sourceTree = "<group>"; };
 		049BD8311DD1BFD800957AF4 /* icon_camera_b@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera_b@3x.png"; sourceTree = "<group>"; };
+		049BD8341DD1CD6500957AF4 /* icon_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_press@2x.png"; sourceTree = "<group>"; };
+		049BD8351DD1CD6500957AF4 /* icon_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_press@3x.png"; sourceTree = "<group>"; };
+		049BD8361DD1CD6500957AF4 /* icon_switchcamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_switchcamera@2x.png"; sourceTree = "<group>"; };
+		049BD8371DD1CD6500957AF4 /* icon_switchcamera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_switchcamera@3x.png"; sourceTree = "<group>"; };
+		049BD83E1DD1CEA200957AF4 /* FromCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromCameraController.h; sourceTree = "<group>"; };
+		049BD83F1DD1CEA200957AF4 /* FromCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromCameraController.m; sourceTree = "<group>"; };
+		049BD8401DD1CEA200957AF4 /* FromCameraController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FromCameraController.xib; sourceTree = "<group>"; };
+		049BD8431DD1D67C00957AF4 /* alpha50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alpha50@2x.png"; sourceTree = "<group>"; };
+		049BD8441DD1D67C00957AF4 /* alpha50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alpha50@3x.png"; sourceTree = "<group>"; };
+		049BD8471DD1D82200957AF4 /* nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar@2x.png"; sourceTree = "<group>"; };
+		049BD8481DD1D82200957AF4 /* nav-bar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar@3x.png"; sourceTree = "<group>"; };
+		049BD84B1DD1DCDE00957AF4 /* point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "point@2x.png"; sourceTree = "<group>"; };
+		049BD84C1DD1DCDE00957AF4 /* point@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "point@3x.png"; sourceTree = "<group>"; };
 		8F5B587656139CFD557E4D67 /* Pods-XiaoHuiBang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.release.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.release.xcconfig"; sourceTree = "<group>"; };
 		A01A17214919735FFEBF2768 /* Pods-XiaoHuiBang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.debug.xcconfig"; sourceTree = "<group>"; };
 		D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XiaoHuiBang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -668,6 +693,7 @@
 				049BD80E1DD161DC00957AF4 /* FriendsCircleViewController.h */,
 				049BD80F1DD161DC00957AF4 /* FriendsCircleViewController.m */,
 				049BD8131DD1622C00957AF4 /* SendMoments */,
+				049BD83D1DD1CE8E00957AF4 /* FromCamera */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,6 +721,16 @@
 			);
 			name = SendMoments;
 			path = SendMoment;
+			sourceTree = "<group>";
+		};
+		049BD83D1DD1CE8E00957AF4 /* FromCamera */ = {
+			isa = PBXGroup;
+			children = (
+				049BD83E1DD1CEA200957AF4 /* FromCameraController.h */,
+				049BD83F1DD1CEA200957AF4 /* FromCameraController.m */,
+				049BD8401DD1CEA200957AF4 /* FromCameraController.xib */,
+			);
+			path = FromCamera;
 			sourceTree = "<group>";
 		};
 		636C67FCAA54B97F2A97C8C5 /* Frameworks */ = {
@@ -1029,6 +1065,16 @@
 		F36C6DD51D992A9D00CB7E24 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				049BD84B1DD1DCDE00957AF4 /* point@2x.png */,
+				049BD84C1DD1DCDE00957AF4 /* point@3x.png */,
+				049BD8471DD1D82200957AF4 /* nav-bar@2x.png */,
+				049BD8481DD1D82200957AF4 /* nav-bar@3x.png */,
+				049BD8431DD1D67C00957AF4 /* alpha50@2x.png */,
+				049BD8441DD1D67C00957AF4 /* alpha50@3x.png */,
+				049BD8341DD1CD6500957AF4 /* icon_press@2x.png */,
+				049BD8351DD1CD6500957AF4 /* icon_press@3x.png */,
+				049BD8361DD1CD6500957AF4 /* icon_switchcamera@2x.png */,
+				049BD8371DD1CD6500957AF4 /* icon_switchcamera@3x.png */,
 				049BD8301DD1BFD800957AF4 /* icon_camera_b@2x.png */,
 				049BD8311DD1BFD800957AF4 /* icon_camera_b@3x.png */,
 				049BD82C1DD1BF8300957AF4 /* icon_emoj@2x.png */,
@@ -1446,6 +1492,7 @@
 			files = (
 				049BD8221DD1A19600957AF4 /* icon_open@2x.png in Resources */,
 				F334F4991DCC5CF5002CFBBC /* 图层-2@3x.png in Resources */,
+				049BD8461DD1D67C00957AF4 /* alpha50@3x.png in Resources */,
 				F3E3E9671D9B71D900E69300 /* ToResetPswViewController.xib in Resources */,
 				F334F4BA1DCC775A002CFBBC /* icon_bangyouquan_unselected@3x.png in Resources */,
 				F3ACCB431DC9C32B002355AC /* saoyisao@2x.png in Resources */,
@@ -1470,8 +1517,10 @@
 				F3E91FA21DA5E9860066D6D6 /* pic_bg@2x.png in Resources */,
 				F3A0E01F1DB757A000E9F12C /* CellBlueSelected@2x.png in Resources */,
 				F32E4D181D98D49B0034BBB8 /* Assets.xcassets in Resources */,
+				049BD84A1DD1D82200957AF4 /* nav-bar@3x.png in Resources */,
 				F33F897E1D9E4A1F00FB0F70 /* icon_xiaohui_selected-@2x.png in Resources */,
 				F30804261DA5FCFE00859781 /* logo@2x.png in Resources */,
+				049BD83A1DD1CD6500957AF4 /* icon_switchcamera@2x.png in Resources */,
 				F3F631F51D9A7B3100388996 /* 头像@3x.png in Resources */,
 				F334F4A91DCC5FB5002CFBBC /* pic_delete@3x.png in Resources */,
 				F3EBC4A71D9A6B7700E93C02 /* ceshi.png in Resources */,
@@ -1488,6 +1537,7 @@
 				F3E3E9621D9B6D0600E69300 /* ForgetSendCodeViewController.xib in Resources */,
 				F3EC358C1DBA100A00F350CA /* icon_profile@2x.png in Resources */,
 				049BD82A1DD1BF6C00957AF4 /* icon_position@2x.png in Resources */,
+				049BD8391DD1CD6500957AF4 /* icon_press@3x.png in Resources */,
 				F35DB80E1DA6310400AF5A31 /* app icon@3x.png in Resources */,
 				F33F899B1D9E510100FB0F70 /* icon_woman@2x.png in Resources */,
 				F317F3FB1DA7500800DB5F70 /* icon_mute@3x.png in Resources */,
@@ -1508,6 +1558,7 @@
 				F3E3E9541D9B68BB00E69300 /* RegistViewController.xib in Resources */,
 				F334F4B91DCC775A002CFBBC /* icon_bangyouquan_unselected@2x.png in Resources */,
 				F3A0E0211DB757A000E9F12C /* CellNotSelected@2x.png in Resources */,
+				049BD84E1DD1DCDE00957AF4 /* point@3x.png in Resources */,
 				F35DB80D1DA6310400AF5A31 /* app icon@2x.png in Resources */,
 				F39494851DB08F7300BE3E51 /* 未标题-1.png in Resources */,
 				F30E927A1DAE1CDA00EDF97B /* MessageListTableViewCell.xib in Resources */,
@@ -1519,6 +1570,7 @@
 				F317F4081DA7828F00DB5F70 /* icon_add@2x.png in Resources */,
 				F334F4A81DCC5FB5002CFBBC /* pic_delete@2x.png in Resources */,
 				049BD8271DD1BF5900957AF4 /* icon_album@3x.png in Resources */,
+				049BD8491DD1D82200957AF4 /* nav-bar@2x.png in Resources */,
 				F3703BBA1DBDFD38000508B1 /* AB5C9E0319D66CB8A938884D6D960D34.png in Resources */,
 				F306DE841DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib in Resources */,
 				049BD8001DD02ACF00957AF4 /* icon_camera@3x.png in Resources */,
@@ -1528,6 +1580,7 @@
 				049BD82B1DD1BF6C00957AF4 /* icon_position@3x.png in Resources */,
 				F33F899C1D9E510100FB0F70 /* icon_woman@3x.png in Resources */,
 				F31B2A471DA49E6C00330636 /* 矩形 2.png in Resources */,
+				049BD8451DD1D67C00957AF4 /* alpha50@2x.png in Resources */,
 				049BD8211DD1A19600957AF4 /* icon_@@3x.png in Resources */,
 				F33F89911D9E4EA600FB0F70 /* icon_man@2x.png in Resources */,
 				F317F3FA1DA7500800DB5F70 /* icon_mute@2x.png in Resources */,
@@ -1539,6 +1592,7 @@
 				F39494AA1DB0E27900BE3E51 /* icon_group-chat-qun@2x.png in Resources */,
 				F3E3E9581D9B68BB00E69300 /* SetHeadNameViewController.xib in Resources */,
 				F334F4B71DCC775A002CFBBC /* icon_bangyouquan_selected@2x.png in Resources */,
+				049BD83B1DD1CD6500957AF4 /* icon_switchcamera@3x.png in Resources */,
 				F30804271DA5FCFE00859781 /* logo@3x.png in Resources */,
 				F39494831DB089DF00BE3E51 /* AddressBookTableViewCell.xib in Resources */,
 				F33F89741D9E47E700FB0F70 /* icon_profile_unselected@2x.png in Resources */,
@@ -1554,12 +1608,15 @@
 				F33F89901D9E4EA600FB0F70 /* icon_about@3x.png in Resources */,
 				F33F89961D9E4EA600FB0F70 /* icon_Security@3x.png in Resources */,
 				F3F631F41D9A7B3100388996 /* 头像@2x.png in Resources */,
+				049BD8381DD1CD6500957AF4 /* icon_press@2x.png in Resources */,
 				049BD81B1DD1626E00957AF4 /* SendMomentsController.xib in Resources */,
 				049BD8321DD1BFD900957AF4 /* icon_camera_b@2x.png in Resources */,
 				F3E3E93F1D9B68A100E69300 /* LoginViewController.xib in Resources */,
 				F39494AB1DB0E27900BE3E51 /* icon_group-chat-qun@3x.png in Resources */,
 				F3EBC4961D9A472700E93C02 /* icon_back@3x.png in Resources */,
+				049BD84D1DD1DCDE00957AF4 /* point@2x.png in Resources */,
 				F3E3E93D1D9B68A100E69300 /* LoginTwoViewController.xib in Resources */,
+				049BD8421DD1CEA200957AF4 /* FromCameraController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,6 +1747,7 @@
 				F334F4AD1DCC631B002CFBBC /* MyQRCodeViewController.m in Sources */,
 				F35C03561DC3593B003D9613 /* RCDGroupInfo.m in Sources */,
 				F394949D1DB0C99100BE3E51 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				049BD8411DD1CEA200957AF4 /* FromCameraController.m in Sources */,
 				F32AC99A1DBF34EA00807061 /* RCDAddressBookViewController.m in Sources */,
 				F317F3FF1DA77C5000DB5F70 /* FTPopOverMenu.m in Sources */,
 				F33F89A71D9E59B900FB0F70 /* AccountSettingViewController.m in Sources */,

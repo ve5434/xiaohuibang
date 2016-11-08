@@ -12,6 +12,7 @@
 
 #import "SendMomentsController.h"
 #import "NSString+Extension.h"
+#import "FromCameraController.h"
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height  // 屏高
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
@@ -210,7 +211,9 @@
     } else if (num == 1) {
         NSLog(@"相册");
     } else if (num == 2) {
-        NSLog(@"拍照");
+        [self presentViewController:[[FromCameraController alloc] init]
+                           animated:YES
+                         completion:nil];
     } else if (num == 3) {
         NSLog(@"定位");
     }

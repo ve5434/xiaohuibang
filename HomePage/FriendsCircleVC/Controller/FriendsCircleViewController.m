@@ -8,6 +8,7 @@
 
 #import "FriendsCircleViewController.h"
 #import "SendMomentsController.h"
+#import "FromCameraController.h"
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height  // 屏高
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
@@ -127,7 +128,17 @@
         
     } else if (buttonTag == 1) {
         // 通过摄像头
-        [self sendPictureOrMovie];
+        [self presentViewController:[[FromCameraController alloc] init]
+                           animated:YES
+                         completion:nil];
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
+
     } else if (buttonTag == 2) {
         // 从手机相册获取
         [self sendFromSystemPicture];
