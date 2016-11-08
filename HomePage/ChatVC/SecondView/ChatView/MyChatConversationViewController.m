@@ -170,8 +170,6 @@
     } else {
         settingsVC.Group = _groupInfo;
     }
-    
-    
     [self.navigationController pushViewController:settingsVC animated:YES];
 }
 

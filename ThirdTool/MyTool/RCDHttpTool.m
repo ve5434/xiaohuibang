@@ -392,6 +392,28 @@
                             }];
 }
 
+//解散群组
+- (void)dismissGroupWithGroupId:(NSString *)groupID
+                    withCreatId:(NSString *)userId
+                       complete:(void (^)(BOOL))result {
+    [AFHttpTool dismissGroupWithGroupId:groupID
+                            withCreatId:userId
+                                success:^(id response) {
+                                    
+                                    
+                                    NSString *msgStr = [response objectForKey:@"msg"];
+                                    NSNumber *msg = (NSNumber *)msgStr;
+                                    if ([msg isEqualToNumber:@1]) {
+                                        result(YES);
+                                    } else {
+                                        result(NO);
+                                    }
+                                }
+                                failure:^(NSError *err) {
+                                    result(NO);
+                                }];
+}
+
 //获取当前用户所在的所有群组信息
 - (void)getMyGroupsListWithUserId:(NSString *)userId
                             block:(void (^)(NSMutableArray *result))block {

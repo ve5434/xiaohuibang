@@ -685,7 +685,6 @@
             //显示聊天会话界面
             [self.navigationController pushViewController:chat animated:YES];
         }
-        
         if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
             //新建一个聊天会话View Controller对象
             MyChatConversationViewController *chat = [[MyChatConversationViewController alloc]init];
@@ -728,10 +727,8 @@
             }
             [self.navigationController pushViewController:chat animated:YES];
         }
-        
         //聚合会话类型，此处自定设置。
         if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_COLLECTION) {
-            
             AFriendRequestListViewController *temp =
             [[AFriendRequestListViewController alloc] init];
             NSArray *array = [NSArray
@@ -742,7 +739,6 @@
             temp.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:temp animated:YES];
         }
-        
         //自定义会话类型
         if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
             RCConversationModel *model =

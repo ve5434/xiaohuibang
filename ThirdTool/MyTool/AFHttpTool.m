@@ -61,7 +61,7 @@
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
-                NSLog(@"~~~%@",[MyTool dictionaryToJson:responseObject]);
+//                NSLog(@"~~~%@",[MyTool dictionaryToJson:responseObject]);
                 if (success) {
                     success(responseObject);
                 }
@@ -223,6 +223,21 @@
     
     [AFHttpTool requestWihtMethod:RequestMethodTypePost
                               url:XOutGroupMembersURL
+                           params:params
+                          success:success
+                          failure:failure];
+}
+
++ (void)dismissGroupWithGroupId:(NSString *)groupID
+                    withCreatId:(NSString *)userId
+                        success:(void (^)(id response))success
+                        failure:(void (^)(NSError *err))failure {
+    NSDictionary *params = @{
+                             @"group_id" : groupID,
+                             @"user_id":userId
+                             };
+    [AFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:XDelGroupURL
                            params:params
                           success:success
                           failure:failure];
