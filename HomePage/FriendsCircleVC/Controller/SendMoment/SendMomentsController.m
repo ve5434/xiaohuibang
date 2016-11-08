@@ -172,10 +172,19 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else if (indexPath.row == 3) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1];
+        NSArray *array = @[@"icon_emoj", @"icon_album", @"icon_camera_b", @"icon_position"];
         float buttonWidth = kScreenWidth/4;
         for (int i = 0; i < 4; i++) {
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(buttonWidth*i, 0, buttonWidth, kScreenWidth*.06)];
-//            [button setImage:[UIImage imageNamed:<#(nonnull NSString *)#>] forState:<#(UIControlState)#>]
+            UIImage *image = [UIImage imageNamed:array[i]];
+            float imageHeight = image.size.height;
+            float imageWidth = image.size.width;
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(buttonWidth*i + (buttonWidth - imageWidth)/2.0, (kScreenHeight*.06 - imageHeight)/2.0, imageWidth, imageHeight)];
+            button.tag = 989 + i;
+            [button addTarget:self action:@selector(moreOptionButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            [button setImage:image forState:UIControlStateNormal];
+            [cell.contentView addSubview:button];
+            [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         }
     }
     
@@ -192,7 +201,21 @@
 
 }
 
+#pragma mark - 输入框下面按钮的点击响应
+- (void)moreOptionButtonAction:(UIButton *)button {
 
+    NSInteger num = button.tag - 989;
+    if (num == 0) {
+        NSLog(@"表情");
+    } else if (num == 1) {
+        NSLog(@"相册");
+    } else if (num == 2) {
+        NSLog(@"拍照");
+    } else if (num == 3) {
+        NSLog(@"定位");
+    }
+
+}
 
 
 
