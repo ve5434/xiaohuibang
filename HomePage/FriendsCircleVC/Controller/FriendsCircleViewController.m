@@ -7,7 +7,7 @@
 //
 
 #import "FriendsCircleViewController.h"
-#import "MomentView.h"
+#import "SendMomentsController.h"
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height  // 屏高
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
@@ -65,7 +65,7 @@
                      }];
     
     float buttonHeight = (kScreenHeight*.3 - 10)/4.0;
-    NSArray *titleArr = @[@"记录生活", @"视频拍照", @"从手机相册选择", @"取消"];
+    NSArray *titleArr = @[@"记录生活", @"视频/拍照", @"从手机相册选择", @"取消"];
     for (int i = 0; i < 4; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -111,11 +111,26 @@
 
     NSInteger buttonTag = button.tag - 1500;
     if (buttonTag == 0) {
-        NSLog(@"记录生活");
+        // push到编辑界面
+        SendMomentsController *momentsController = [[SendMomentsController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:momentsController];
+        nav.navigationBar.barTintColor = [UIColor colorWithRed:42.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0];
+        [self presentViewController:nav animated:YES completion:nil];
+        
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
+        
     } else if (buttonTag == 1) {
-        NSLog(@"视频拍照");
+        // 通过摄像头
+        [self sendPictureOrMovie];
     } else if (buttonTag == 2) {
-        NSLog(@"从手机相册获取");
+        // 从手机相册获取
+        [self sendFromSystemPicture];
     } else {
         // 移除alert
         [UIView animateWithDuration:.35
@@ -129,8 +144,7 @@
 }
 
 // 颜色转换成image
--(UIImage *)createImageWithColor:(UIColor*) color
-{
+-(UIImage *)createImageWithColor:(UIColor*) color {
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -148,7 +162,23 @@
 
 }
 
+#pragma mark - 发布动态按钮响应下的几个选项
+// 记录生活
+- (void)sendTextMoments {
 
+    
+    
+}
+
+// 视频拍照
+- (void)sendPictureOrMovie {
+
+}
+
+// 从手机相册选择
+- (void)sendFromSystemPicture {
+
+}
 
 
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendMomentsController">
+            <connections>
+                <outlet property="backgroundView" destination="Ynj-gw-kFK" id="feL-hD-pxZ"/>
+                <outlet property="inputView" destination="Ciq-Zv-IYB" id="z39-JJ-vox"/>
+                <outlet property="scrollView" destination="AzZ-8a-2f5" id="IyX-2m-KKZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AzZ-8a-2f5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynj-gw-kFK">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="记录我的生活" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ciq-Zv-IYB" userLabel="inputView">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="woV-3H-60j"/>
+                                    </constraints>
+                                    <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="Ciq-Zv-IYB" firstAttribute="top" secondItem="Ynj-gw-kFK" secondAttribute="top" id="01p-Ev-ffu"/>
+                                <constraint firstAttribute="trailing" secondItem="Ciq-Zv-IYB" secondAttribute="trailing" id="LZd-hu-Fy6"/>
+                                <constraint firstAttribute="height" constant="600" id="hi8-V0-l8v"/>
+                                <constraint firstItem="Ciq-Zv-IYB" firstAttribute="leading" secondItem="Ynj-gw-kFK" secondAttribute="leading" id="oAg-tt-8j3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Ynj-gw-kFK" firstAttribute="top" secondItem="AzZ-8a-2f5" secondAttribute="top" id="L18-bu-DZg"/>
+                        <constraint firstAttribute="bottom" secondItem="Ynj-gw-kFK" secondAttribute="bottom" id="Nrb-1f-w9Z"/>
+                        <constraint firstAttribute="trailing" secondItem="Ynj-gw-kFK" secondAttribute="trailing" id="Q6f-nl-pTJ"/>
+                        <constraint firstItem="Ynj-gw-kFK" firstAttribute="leading" secondItem="AzZ-8a-2f5" secondAttribute="leading" id="XgJ-va-pvc"/>
+                        <constraint firstItem="Ynj-gw-kFK" firstAttribute="width" secondItem="AzZ-8a-2f5" secondAttribute="width" id="vYk-YD-O0D"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AzZ-8a-2f5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ewt-DS-pBI"/>
+                <constraint firstAttribute="trailing" secondItem="AzZ-8a-2f5" secondAttribute="trailing" id="PvU-8m-33h"/>
+                <constraint firstItem="AzZ-8a-2f5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y28-ze-P6L"/>
+                <constraint firstAttribute="bottom" secondItem="AzZ-8a-2f5" secondAttribute="bottom" id="pOo-FL-j6M"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
