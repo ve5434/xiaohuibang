@@ -360,7 +360,6 @@
 }
 
 - (void)didTapCellPortrait:(RCConversationModel *)model {
-    
     if (model.conversationModelType ==
         RC_CONVERSATION_MODEL_TYPE_PUBLIC_SERVICE) {
         MyChatConversationViewController *_conversationVC =
@@ -371,9 +370,9 @@
         _conversationVC.title = model.conversationTitle;
         _conversationVC.conversation = model;
         _conversationVC.unReadMessage = model.unreadMessageCount;
+        _conversationVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:_conversationVC animated:YES];
     }
-    
     if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
         MyChatConversationViewController *_conversationVC =
         [[MyChatConversationViewController alloc] init];
@@ -385,6 +384,7 @@
         _conversationVC.unReadMessage = model.unreadMessageCount;
         _conversationVC.enableNewComingMessageIcon = YES; //开启消息提醒
         _conversationVC.enableUnreadMessageIcon = YES;
+        _conversationVC.hidesBottomBarWhenPushed = YES;
         if (model.conversationType == ConversationType_SYSTEM) {
             _conversationVC.userName = @"系统消息";
             _conversationVC.title = @"系统消息";
@@ -392,6 +392,7 @@
         if ([model.objectName isEqualToString:@"RC:ContactNtf"]) {
             RCDAddressBookViewController *addressBookVC = [RCDAddressBookViewController addressBookViewController];
             addressBookVC.needSyncFriendList = YES;
+            addressBookVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:addressBookVC animated:YES];
             return;
         }
@@ -401,7 +402,6 @@
         }
         [self.navigationController pushViewController:_conversationVC animated:YES];
     }
-    
     //聚合会话类型，此处自定设置。
     if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_COLLECTION) {
         MyMessageListViewController *temp = [[MyMessageListViewController alloc] init];
@@ -410,16 +410,15 @@
         [temp setDisplayConversationTypes:array];
         [temp setCollectionConversationType:nil];
         temp.isEnteredToCollectionViewController = YES;
+        temp.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:temp animated:YES];
     }
-    
     //自定义会话类型
     if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
-        //        RCConversationModel *model =
-        //        self.conversationListDataSource[indexPath.row];
-        
+        //        RCConversationModel *model = self.conversationListDataSource[indexPath.row];
         if ([model.objectName isEqualToString:@"RC:ContactNtf"]) {
             RCDAddressBookViewController *addressBookVC = [RCDAddressBookViewController addressBookViewController];
+            addressBookVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:addressBookVC animated:YES];
         }
     }
@@ -427,7 +426,6 @@
 
 //插入自定义会话model
 - (NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource {
-    
     for (int i = 0; i < dataSource.count; i++) {
         RCConversationModel *model = dataSource[i];
         //筛选请求添加好友的系统消息，用于生成自定义会话类型的cell
