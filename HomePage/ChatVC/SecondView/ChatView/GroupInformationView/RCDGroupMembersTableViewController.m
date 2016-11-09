@@ -31,10 +31,14 @@
   // Uncomment the following line to display an Edit button in the navigation
   // bar for this view controller.
   // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-  self.tableView.tableFooterView = [UIView new];
+   self.tableView.tableFooterView = [UIView new];
 
-  self.title = [NSString stringWithFormat:@"群组成员(%lu)",
-                                          (unsigned long)[_GroupMembers count]];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    title.text = [NSString stringWithFormat:@"群组成员(%lu)",
+                  (unsigned long)[_GroupMembers count]];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.textColor = [UIColor whiteColor];
+    self.navigationItem.titleView = title;
 }
 
 - (void)didReceiveMemoryWarning {

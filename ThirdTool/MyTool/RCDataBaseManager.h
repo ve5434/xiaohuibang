@@ -51,6 +51,9 @@
 //从表中获取某个好友的信息
 - (RCDUserInfo *)getFriendInfo:(NSString *)friendId;
 
+//删除表中的群组信息
+- (void)deleteGroupToDB:(NSString *)groupId;
+
 //从表中获取所有群组信息
 - (NSMutableArray *)getAllGroup;
 

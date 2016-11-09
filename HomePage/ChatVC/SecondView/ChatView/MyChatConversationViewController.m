@@ -28,6 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.frame = CGRectMake(0, 6, 87, 23);
@@ -43,7 +46,7 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     [self.navigationItem setLeftBarButtonItem:leftButton];
     
-    NSLog(@"%@",self.targetId);
+//    NSLog(@"%@",self.targetId);
     
     if (self.conversationType == ConversationType_PRIVATE) {
         UIButton *privateButton = [UIButton buttonWithType:UIButtonTypeCustom];

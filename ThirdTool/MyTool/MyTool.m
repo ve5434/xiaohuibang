@@ -43,15 +43,15 @@
 //    [messageListVC updateBadgeValueForTabBarItem];
     UINavigationController *messageListNAV = [[UINavigationController alloc] initWithRootViewController:messageListVC];
     messageListNAV.title = @"消信";
-    messageListNAV.tabBarItem.image = [UIImage imageNamed:@"icon_xiaohui_unselected-"];
+    messageListNAV.tabBarItem.image = [UIImage imageNamed:@"icon_xiaoxin_unselected_"];
     messageListNAV.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_xiaohui_selected-"];
     messageListNAV.navigationBar.barTintColor = [UIColor colorWithRed:42.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0];
     
     FriendsCircleViewController *friendCircleVC = [[FriendsCircleViewController alloc] init];
     UINavigationController *friendCircleNAV = [[UINavigationController alloc] initWithRootViewController:friendCircleVC];
     friendCircleNAV.title = @"邦友圈";
-    friendCircleNAV.tabBarItem.image = [UIImage imageNamed:@"icon_bangyouquan_unselected"];
-    friendCircleNAV.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_bangyouquan_selected@2x"];
+    friendCircleNAV.tabBarItem.image = [UIImage imageNamed:@"icon_moments_unselected"];
+    friendCircleNAV.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_moments_selected_selected"];
     friendCircleNAV.navigationBar.barTintColor = [UIColor colorWithRed:42.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0];
     
     PersonageViewController *personageVC = [[PersonageViewController alloc] init];

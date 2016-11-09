@@ -50,6 +50,11 @@
 - (void)getGroupByID:(NSString *)groupID
    successCompletion:(void (^)(RCDGroupInfo *group))completion;
 
+//修改群组名称
+- (void)renameGroupWithGoupId:(NSString *)groupID
+                    groupName:(NSString *)groupName
+                     complete:(void (^)(BOOL))result;
+
 //获取群成员信息
 - (void)getGroupMembersWithGroupId:(NSString *)groupId
                              Block:(void (^)(NSMutableArray *result))block;
@@ -68,6 +73,11 @@
 - (void)dismissGroupWithGroupId:(NSString *)groupID
                     withCreatId:(NSString *)userId
                        complete:(void (^)(BOOL))result;
+
+//退出群组
+- (void)quitGroupWithGroupId:(NSString *)groupID
+                  withUserId:(NSString *)userId
+                    complete:(void (^)(BOOL))result;
 
 //获取当前用户所在的所有群组信息
 - (void)getMyGroupsListWithUserId:(NSString *)userId
