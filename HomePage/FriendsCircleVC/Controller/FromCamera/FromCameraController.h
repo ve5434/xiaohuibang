@@ -10,5 +10,8 @@
 
 @interface FromCameraController : UIViewController
 
+@property (assign, nonatomic) BOOL isBackCamera;    // 是否是后置摄像头
+@property (assign, nonatomic) BOOL isFlash;    // 是否打开闪光灯
+
 
 @end

@@ -9,8 +9,8 @@
 #import "FromCameraController.h"
 
 @interface FromCameraController ()
-@property (weak, nonatomic) IBOutlet UILabel *movieLabel;   // 视频标签
-@property (weak, nonatomic) IBOutlet UILabel *pictureLabel; // 照片标签
+@property (weak, nonatomic) IBOutlet UILabel *picLabel;   // 拍照标签
+@property (weak, nonatomic) IBOutlet UILabel *movLabel; // 摄像标签
 
 @end
 
@@ -71,17 +71,29 @@
     NSLog(@"拍照");
 }
 // 摄像
+// 打开闪光灯
+- (IBAction)openFlash:(UIButton *)sender {
+    
+    _isFlash = !_isFlash;
+    if (_isFlash == YES) {
+        [sender setImage:[UIImage imageNamed:@"icon_flash_open"] forState:UIControlStateNormal];
+    } else {
+        [sender setImage:[UIImage imageNamed:@"icon_flash_close"] forState:UIControlStateNormal];
+    }
+    
+    
+}
 
 #pragma mark - 轻扫切换摄像跟拍照
 - (void)swipeRightAction:(UISwipeGestureRecognizer *)swipe {
 
     [UIView animateWithDuration:.35
                      animations:^{
-                         _movieLabel.transform = CGAffineTransformIdentity;
-                         _pictureLabel.transform = CGAffineTransformIdentity;
+                         _picLabel.transform = CGAffineTransformIdentity;
+                         _movLabel.transform = CGAffineTransformIdentity;
                      } completion:^(BOOL finished) {
-                         _movieLabel.textColor = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:243/255.0 alpha:1];
-                         _pictureLabel.textColor = [UIColor whiteColor];
+                         _picLabel.textColor = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:243/255.0 alpha:1];
+                         _movLabel.textColor = [UIColor whiteColor];
                      }];
 
 }
@@ -90,11 +102,11 @@
     
     [UIView animateWithDuration:.35
                      animations:^{
-                         _movieLabel.transform = CGAffineTransformMakeTranslation(-40, 0);
-                         _pictureLabel.transform = CGAffineTransformMakeTranslation(-40, 0);
+                         _picLabel.transform = CGAffineTransformMakeTranslation(-40, 0);
+                         _movLabel.transform = CGAffineTransformMakeTranslation(-40, 0);
                      } completion:^(BOOL finished) {
-                         _movieLabel.textColor = [UIColor whiteColor];
-                         _pictureLabel.textColor = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:243/255.0 alpha:1];
+                         _picLabel.textColor = [UIColor whiteColor];
+                         _movLabel.textColor = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:243/255.0 alpha:1];
                      }];
     
 }
