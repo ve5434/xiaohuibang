@@ -598,35 +598,33 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             //                      }];
         }
     }
-    
     if (actionSheet.tag == 102) {
         if (buttonIndex == 0) {
-            //      [RCDHTTPTOOL
-            //          dismissGroupWithGroupId:groupId
-            //                         complete:^(BOOL isOk) {
-            //
-            //                           dispatch_async(dispatch_get_main_queue(), ^{
-            //                             if (isOk) {
-            //                               [[RCIMClient sharedRCIMClient]
-            //                                   clearMessages:ConversationType_GROUP
-            //                                        targetId:groupId];
-            //
-            //                               [[RCIMClient sharedRCIMClient]
-            //                                   removeConversation:ConversationType_GROUP
-            //                                             targetId:groupId];
-            //                               [self.navigationController
-            //                                   popToRootViewControllerAnimated:YES];
-            //                             } else {
-            //                               UIAlertView *alertView = [[UIAlertView alloc]
-            //                                       initWithTitle:nil
-            //                                             message:@"解散群组失败！"
-            //                                            delegate:nil
-            //                                   cancelButtonTitle:@"确定"
-            //                                   otherButtonTitles:nil, nil];
-            //                               [alertView show];
-            //                             }
-            //                           });
-            //                         }];
+            [RCDHTTPTOOL dismissGroupWithGroupId:groupId
+                                     withCreatId:_Group.creatorId
+                                        complete:^(BOOL isOk) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                if (isOk) {
+                                                    [[RCIMClient sharedRCIMClient]
+                                                     clearMessages:ConversationType_GROUP
+                                                     targetId:groupId];
+                                                    
+                                                    [[RCIMClient sharedRCIMClient]
+                                                     removeConversation:ConversationType_GROUP
+                                                     targetId:groupId];
+                                                    [self.navigationController
+                                                     popToRootViewControllerAnimated:YES];
+                                                } else {
+                                                    UIAlertView *alertView = [[UIAlertView alloc]
+                                                                              initWithTitle:nil
+                                                                              message:@"解散群组失败！"
+                                                                              delegate:nil
+                                                                              cancelButtonTitle:@"确定"
+                                                                              otherButtonTitles:nil, nil];
+                                                    [alertView show];
+                                                }
+                                            });
+             }];
         }
     }
 }
@@ -679,6 +677,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     if (indexPath.section == 0) {
         [cell setCellStyle:DefaultStyle];
+        
         cell.leftLabel.text = [NSString stringWithFormat:@"全部群成员(%@)", _Group.number];
     }else if(indexPath.section == 1){
         switch (indexPath.row) {
@@ -738,7 +737,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 break;
         }
     }
-    
     cell.baseSettingTableViewDelegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

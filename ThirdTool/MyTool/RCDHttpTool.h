@@ -64,6 +64,11 @@
                     usersId:(NSString *)usersId
                    complete:(void (^)(BOOL))result;
 
+//解散群组
+- (void)dismissGroupWithGroupId:(NSString *)groupID
+                    withCreatId:(NSString *)userId
+                       complete:(void (^)(BOOL))result;
+
 //获取当前用户所在的所有群组信息
 - (void)getMyGroupsListWithUserId:(NSString *)userId
                             block:(void (^)(NSMutableArray *result))block;

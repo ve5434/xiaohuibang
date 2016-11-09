@@ -89,6 +89,12 @@ typedef NS_ENUM(NSInteger, RequestMethodType) {
                     success:(void (^)(id response))success
                     failure:(void (^)(NSError *err))failure;
 
+//群主解散群
++ (void)dismissGroupWithGroupId:(NSString *)groupID
+                    withCreatId:(NSString *)userId
+                        success:(void (^)(id response))success
+                        failure:(void (^)(NSError *err))failure;
+
 //查看我所在的所有群组
 + (void)getMyGroupsListWithUserid:(NSString *)userId
                           success:(void (^)(id response))success

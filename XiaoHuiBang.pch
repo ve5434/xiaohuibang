@@ -63,6 +63,7 @@
 #define XGroupInfoURL @"group/group_info"    //群信息
 #define XGroupQRCodeURL @"group/group_code"    //群组二维码
 #define XGroupUserInfoURL @"group/group_user"    //群成员信息
+#define XDelGroupURL @"group/group_del"    //解散群组
 #define XFriendsAddURL @"user/friend_add"    //添加朋友
 #define XAddGroupMembersURL @"group/groupmain_user_add"    //添加群成员
 #define XOutGroupMembersURL @"group/groupmain_out"    //踢出群成员

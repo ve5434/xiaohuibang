@@ -55,6 +55,7 @@
                                              withGroupId:group.groupId];
             }];
 }
+
 - (IBAction)addUserToGroupClick:(UIButton *)sender {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",XBaseURL,@"group/group_add"];
     

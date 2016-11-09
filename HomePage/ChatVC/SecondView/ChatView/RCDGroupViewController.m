@@ -58,7 +58,6 @@
         if ([_groups count] > 0) {
             [weakSelf.tableView reloadData];
         }
-        
         [RCDHTTPTOOL getMyGroupsListWithUserId:[USER_D objectForKey:@"user_id"]
                                          block:^(NSMutableArray *result) {
                                              dispatch_async(
@@ -89,7 +88,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -114,8 +112,6 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    
     return _groups.count;
 }
 

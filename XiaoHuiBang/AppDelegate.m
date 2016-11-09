@@ -47,8 +47,12 @@
     [RCIM sharedRCIM].userInfoDataSource = RCDDataSource;
     [RCIM sharedRCIM].groupInfoDataSource = RCDDataSource;
     
+    [RCIM sharedRCIM].groupMemberDataSource = RCDDataSource;
     //开启消息@功能（只支持群聊和讨论组, App需要实现群成员数据源groupMemberDataSource）
     [RCIM sharedRCIM].enableMessageMentioned = YES;
+    
+    //开启消息撤回功能
+    [RCIM sharedRCIM].enableMessageRecall = YES;
     
     NSString *usrId = [USER_D objectForKey:@"user_id"];
     NSString *nickname =  [USER_D objectForKey:@"nickname"];
@@ -155,8 +159,6 @@
         }
     } else if ([message.content
                 isMemberOfClass:[RCGroupNotificationMessage class]]) {
-        
-        
         RCGroupNotificationMessage *msg =
         (RCGroupNotificationMessage *)message.content;
         if ([msg.operation isEqualToString:@"Dismiss"] &&
