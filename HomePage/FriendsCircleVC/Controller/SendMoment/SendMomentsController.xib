@@ -24,9 +24,16 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AzZ-8a-2f5">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-On-Nhk" userLabel="WhiteView">
+                            <rect key="frame" x="0.0" y="-600" width="375" height="600"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="600" id="Soe-Kx-u9q"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynj-gw-kFK">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="600" id="hi8-V0-l8v"/>
                             </constraints>
@@ -37,7 +44,10 @@
                         <constraint firstItem="Ynj-gw-kFK" firstAttribute="top" secondItem="AzZ-8a-2f5" secondAttribute="top" id="L18-bu-DZg"/>
                         <constraint firstAttribute="bottom" secondItem="Ynj-gw-kFK" secondAttribute="bottom" id="Nrb-1f-w9Z"/>
                         <constraint firstAttribute="trailing" secondItem="Ynj-gw-kFK" secondAttribute="trailing" id="Q6f-nl-pTJ"/>
+                        <constraint firstItem="ED2-On-Nhk" firstAttribute="leading" secondItem="AzZ-8a-2f5" secondAttribute="leading" id="X8M-H4-c32"/>
                         <constraint firstItem="Ynj-gw-kFK" firstAttribute="leading" secondItem="AzZ-8a-2f5" secondAttribute="leading" id="XgJ-va-pvc"/>
+                        <constraint firstAttribute="trailing" secondItem="ED2-On-Nhk" secondAttribute="trailing" id="YoZ-IF-GzG"/>
+                        <constraint firstItem="ED2-On-Nhk" firstAttribute="top" secondItem="AzZ-8a-2f5" secondAttribute="top" constant="-600" id="aD7-hB-0mX"/>
                         <constraint firstItem="Ynj-gw-kFK" firstAttribute="width" secondItem="AzZ-8a-2f5" secondAttribute="width" id="vYk-YD-O0D"/>
                     </constraints>
                 </scrollView>

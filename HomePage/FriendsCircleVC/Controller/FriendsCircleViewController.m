@@ -13,7 +13,9 @@
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height  // 屏高
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
 
-@interface FriendsCircleViewController ()
+@interface FriendsCircleViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+
 
 @end
 
@@ -142,6 +144,13 @@
     } else if (buttonTag == 2) {
         // 从手机相册获取
         [self sendFromSystemPicture];
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
     } else {
         // 移除alert
         [UIView animateWithDuration:.35
@@ -173,25 +182,36 @@
 
 }
 
-#pragma mark - 发布动态按钮响应下的几个选项
-// 记录生活
-- (void)sendTextMoments {
-
-    
-    
-}
-
-// 视频拍照
-- (void)sendPictureOrMovie {
-
-}
-
 // 从手机相册选择
 - (void)sendFromSystemPicture {
 
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
 }
 
+#pragma mark - imagePicker代理方法
+//已经选好照片
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    //判断资源的来源 相册||摄像头
+    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+        //取出照片
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        // 返回照片
+        
+    } else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        //取出照片
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        // 返回照片
 
+    }
+    
+    //关闭,返回
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

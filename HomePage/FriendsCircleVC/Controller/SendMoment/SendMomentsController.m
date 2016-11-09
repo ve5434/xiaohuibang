@@ -18,7 +18,7 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
 
 
-@interface SendMomentsController () <UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface SendMomentsController () <UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
 
     UITableView *_tableView;
     UITextView *_textView;  // 输入框
@@ -211,7 +211,8 @@
     if (num == 0) {
         NSLog(@"表情");
     } else if (num == 1) {
-        NSLog(@"相册");
+        // 打开系统相册
+        [self openSystemPicture];
     } else if (num == 2) {
         [self presentViewController:[[FromCameraController alloc] init]
                            animated:YES
@@ -222,6 +223,35 @@
 
 }
 
+#pragma mark - 打开系统相册选区照片
+- (void)openSystemPicture {
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
+}
+
+#pragma mark - imagePicker代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+
+    // 判断资源的来源 相册||摄像头
+    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+        // 取出照片
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        // 返回照片
+        
+    } else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        // 取出照片
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        // 返回照片
+        
+    }
+    
+    //关闭,返回
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

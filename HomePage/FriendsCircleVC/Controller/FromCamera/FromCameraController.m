@@ -6,6 +6,13 @@
 //  Copyright © 2016年 消汇邦. All rights reserved.
 //
 
+// 曹老师今天去哪玩？
+// 跟老板一起玩项目
+
+// 从摄像头获取视频或照片
+
+
+
 #import "FromCameraController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
