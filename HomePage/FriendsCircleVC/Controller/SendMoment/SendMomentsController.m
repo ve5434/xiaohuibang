@@ -117,8 +117,10 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
 
     // 先判断本地是否存有已经编辑过的状态
-    textView.text = @"";
-    textView.textColor = [UIColor blackColor];
+    if ([textView.text isEqualToString:@"记录我的生活"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
     
     return YES;
 

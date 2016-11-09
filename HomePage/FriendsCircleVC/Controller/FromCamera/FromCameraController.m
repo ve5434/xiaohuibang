@@ -79,6 +79,9 @@
                      animations:^{
                          _movieLabel.transform = CGAffineTransformIdentity;
                          _pictureLabel.transform = CGAffineTransformIdentity;
+                     } completion:^(BOOL finished) {
+                         _movieLabel.textColor = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:243/255.0 alpha:1];
+                         _pictureLabel.textColor = [UIColor whiteColor];
                      }];
 
 }
@@ -89,6 +92,9 @@
                      animations:^{
                          _movieLabel.transform = CGAffineTransformMakeTranslation(-40, 0);
                          _pictureLabel.transform = CGAffineTransformMakeTranslation(-40, 0);
+                     } completion:^(BOOL finished) {
+                         _movieLabel.textColor = [UIColor whiteColor];
+                         _pictureLabel.textColor = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:243/255.0 alpha:1];
                      }];
     
 }
