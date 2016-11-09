@@ -7,12 +7,15 @@
 //
 
 #import "FriendsCircleViewController.h"
-#import "MomentView.h"
+#import "SendMomentsController.h"
+#import "FromCameraController.h"
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height  // 屏高
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width    // 屏宽
 
-@interface FriendsCircleViewController ()
+@interface FriendsCircleViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+
 
 @end
 
@@ -65,7 +68,7 @@
                      }];
     
     float buttonHeight = (kScreenHeight*.3 - 10)/4.0;
-    NSArray *titleArr = @[@"记录生活", @"视频拍照", @"从手机相册选择", @"取消"];
+    NSArray *titleArr = @[@"记录生活", @"视频/拍照", @"从手机相册选择", @"取消"];
     for (int i = 0; i < 4; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -111,11 +114,43 @@
 
     NSInteger buttonTag = button.tag - 1500;
     if (buttonTag == 0) {
-        NSLog(@"记录生活");
+        // push到编辑界面
+        SendMomentsController *momentsController = [[SendMomentsController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:momentsController];
+        nav.navigationBar.barTintColor = [UIColor colorWithRed:42.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0];
+        [self presentViewController:nav animated:YES completion:nil];
+        
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
+        
     } else if (buttonTag == 1) {
-        NSLog(@"视频拍照");
+        // 通过摄像头
+        [self presentViewController:[[FromCameraController alloc] init]
+                           animated:YES
+                         completion:nil];
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
+
     } else if (buttonTag == 2) {
-        NSLog(@"从手机相册获取");
+        // 从手机相册获取
+        [self sendFromSystemPicture];
+        // 移除alert
+        [UIView animateWithDuration:.35
+                         animations:^{
+                             [button.superview.superview viewWithTag:1001].transform = CGAffineTransformMakeTranslation(0, kScreenHeight*.3);
+                         } completion:^(BOOL finished) {
+                             [button.superview.superview removeFromSuperview];
+                         }];
     } else {
         // 移除alert
         [UIView animateWithDuration:.35
@@ -129,8 +164,7 @@
 }
 
 // 颜色转换成image
--(UIImage *)createImageWithColor:(UIColor*) color
-{
+-(UIImage *)createImageWithColor:(UIColor*) color {
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -148,9 +182,36 @@
 
 }
 
+// 从手机相册选择
+- (void)sendFromSystemPicture {
 
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
+}
 
+#pragma mark - imagePicker代理方法
+//已经选好照片
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    //判断资源的来源 相册||摄像头
+    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+        //取出照片
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        // 返回照片
+        
+    } else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        //取出照片
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        // 返回照片
 
+    }
+    
+    //关闭,返回
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 
