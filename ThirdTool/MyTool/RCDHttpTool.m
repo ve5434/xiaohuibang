@@ -306,6 +306,27 @@
                      }];
 }
 
+//修改群组名称
+- (void)renameGroupWithGoupId:(NSString *)groupID
+                    groupName:(NSString *)groupName
+                     complete:(void (^)(BOOL))result {
+    [AFHttpTool renameGroupWithGroupId:groupID
+                             GroupName:groupName
+                               success:^(id response) {
+                                   
+                                   NSString *msgStr = [response objectForKey:@"msg"];
+                                   NSNumber *msg = (NSNumber *)msgStr;
+                                   if ([msg isEqualToNumber:@1]) {
+                                       result(YES);
+                                   } else {
+                                       result(NO);
+                                   }
+                               }
+                               failure:^(NSError *err) {
+                                   result(NO);
+                               }];
+}
+
 //根据groupId获取群组成员信息
 - (void)getGroupMembersWithGroupId:(NSString *)groupId
                              Block:(void (^)(NSMutableArray *result))block {
@@ -400,7 +421,6 @@
                             withCreatId:userId
                                 success:^(id response) {
                                     
-                                    
                                     NSString *msgStr = [response objectForKey:@"msg"];
                                     NSNumber *msg = (NSNumber *)msgStr;
                                     if ([msg isEqualToNumber:@1]) {
@@ -412,6 +432,27 @@
                                 failure:^(NSError *err) {
                                     result(NO);
                                 }];
+}
+
+//退出群组
+- (void)quitGroupWithGroupId:(NSString *)groupID
+                  withUserId:(NSString *)userId
+                    complete:(void (^)(BOOL))result {
+    [AFHttpTool quitGroupWithGroupId:groupID
+                          withUserId:userId
+                             success:^(id response) {
+                                 
+                                 NSString *msgStr = [response objectForKey:@"msg"];
+                                 NSNumber *msg = (NSNumber *)msgStr;
+                                 if ([msg isEqualToNumber:@1]) {
+                                     result(YES);
+                                 } else {
+                                     result(NO);
+                                 }
+                             }
+                             failure:^(NSError *err) {
+                                 result(NO);
+                             }];
 }
 
 //获取当前用户所在的所有群组信息

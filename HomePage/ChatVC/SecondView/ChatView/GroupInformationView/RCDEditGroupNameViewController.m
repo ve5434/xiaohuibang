@@ -10,11 +10,11 @@
 #import "RCDHttpTool.h"
 #import <RongIMKit/RongIMKit.h>
 #import "UIColor+RCColor.h"
-//#import "RCDUIBarButtonItem.h"
+#import "RCDUIBarButtonItem.h"
 
 @interface RCDEditGroupNameViewController ()
 
-//@property (nonatomic, strong) RCDUIBarButtonItem *rightBtn;
+@property (nonatomic, strong) RCDUIBarButtonItem *rightBtn;
 
 @end
 
@@ -37,32 +37,31 @@
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     
     //backgroundView
-    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 10, screenWidth, 44)];
+    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 10 + 64, screenWidth, 44)];
     bgView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bgView];
     
     //groupNameTextField
     self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
     CGFloat groupNameTextFieldWidth = screenWidth-8-8;
-    self.groupNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(8, 10, groupNameTextFieldWidth, 44)];
+    self.groupNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(8, 10 + 64, groupNameTextFieldWidth, 44)];
     self.groupNameTextField.clearButtonMode = UITextFieldViewModeAlways;
     self.groupNameTextField.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:self.groupNameTextField];
     _groupNameTextField.delegate = self;
     
     //自定义rightBarButtonItem
-//    self.rightBtn =
-//    [[RCDUIBarButtonItem alloc] initWithbuttonTitle:@"保存"
-//                                         titleColor:[UIColor colorWithHexString:@"9fcdfd" alpha:1.0]
-//                                        buttonFrame:CGRectMake(0, 0, 50, 30)
-//                                             target:self
-//                                             action:@selector(clickDone:)];
-//    [self.rightBtn buttonIsCanClick:NO
-//                        buttonColor:[UIColor colorWithHexString:@"9fcdfd" alpha:1.0]
-//                      barButtonItem:self.rightBtn];
-//    self.navigationItem.rightBarButtonItems = [self.rightBtn
-//                                               setTranslation:self.rightBtn
-//                                               translation:-11];
+    self.rightBtn = [[RCDUIBarButtonItem alloc] initWithbuttonTitle:@"保存"
+                                         titleColor:[UIColor colorWithHexString:@"9fcdfd" alpha:1.0]
+                                        buttonFrame:CGRectMake(0, 0, 50, 30)
+                                             target:self
+                                             action:@selector(clickDone:)];
+    [self.rightBtn buttonIsCanClick:NO
+                        buttonColor:[UIColor colorWithHexString:@"9fcdfd" alpha:1.0]
+                      barButtonItem:self.rightBtn];
+    self.navigationItem.rightBarButtonItems = [self.rightBtn
+                                               setTranslation:self.rightBtn
+                                               translation:-11];
 }
 
 - (void)setGroupInfo:(RCDGroupInfo *)groupInfo {
@@ -74,6 +73,11 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view.
   
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    title.text = @"修改群名称";
+    title.textAlignment = NSTextAlignmentCenter;
+    title.textColor = [UIColor whiteColor];
+    self.navigationItem.titleView = title;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,50 +86,49 @@
 }
 
 - (void)clickDone:(id)sender {
-//  [self.rightBtn buttonIsCanClick:NO
-//                      buttonColor:[UIColor colorWithHexString:@"9fcdfd" alpha:1.0]
-//                    barButtonItem:self.rightBtn];
-  NSString *nameStr = [_groupNameTextField.text copy];
-  nameStr = [nameStr
-      stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [self.rightBtn buttonIsCanClick:NO
+                        buttonColor:[UIColor colorWithHexString:@"9fcdfd" alpha:1.0]
+                      barButtonItem:self.rightBtn];
+    NSString *nameStr = [_groupNameTextField.text copy];
+    nameStr = [nameStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    //群组名称需要大于2位
+    if ([nameStr length] == 0) {
+        [self Alert:@"群组名称不能为空"];
+        return;
+    }
+    //群组名称需要大于2个字
+    if ([nameStr length] < 2) {
+        [self Alert:@"群组名称过短"];
+        return;
+    }
+    //群组名称需要小于10个字
+    if ([nameStr length] > 10) {
+        [self Alert:@"群组名称不能超过10个字"];
+        return;
+    }
 
-  //群组名称需要大于2位
-  if ([nameStr length] == 0) {
-    [self Alert:@"群组名称不能为空"];
-    return;
-  }
-  //群组名称需要大于2个字
-  if ([nameStr length] < 2) {
-    [self Alert:@"群组名称过短"];
-    return;
-  }
-  //群组名称需要小于10个字
-  if ([nameStr length] > 10) {
-    [self Alert:@"群组名称不能超过10个字"];
-    return;
-  }
-
-//  [RCDHTTPTOOL renameGroupWithGoupId:_groupInfo.groupId
-//                           groupName:nameStr
-//                            complete:^(BOOL result) {
-//                              if (result == YES) {
-//                                [[NSNotificationCenter defaultCenter]
-//                                    postNotificationName:@"renameGroupName"
-//                                                  object:_groupNameTextField.text];
-//                                RCGroup *groupInfo = [RCGroup new];
-//                                groupInfo.groupId = _groupInfo.groupId;
-//                                groupInfo.groupName = nameStr;
-//                                groupInfo.portraitUri = _groupInfo.portraitUri;
-//                                [[RCIM sharedRCIM]
-//                                    refreshGroupInfoCache:groupInfo
-//                                              withGroupId:_groupInfo.groupId];
-//                                [self.navigationController
-//                                    popViewControllerAnimated:YES];
-//                              }
-//                              if (result == NO) {
-//                                [self Alert:@"群组名称修改失败"];
-//                              }
-//                            }];
+  [RCDHTTPTOOL renameGroupWithGoupId:_groupInfo.groupId
+                           groupName:nameStr
+                            complete:^(BOOL result) {
+                              if (result == YES) {
+                                [[NSNotificationCenter defaultCenter]
+                                    postNotificationName:@"renameGroupName"
+                                                  object:_groupNameTextField.text];
+                                RCGroup *groupInfo = [RCGroup new];
+                                groupInfo.groupId = _groupInfo.groupId;
+                                groupInfo.groupName = nameStr;
+                                groupInfo.portraitUri = _groupInfo.portraitUri;
+                                [[RCIM sharedRCIM]
+                                    refreshGroupInfoCache:groupInfo
+                                              withGroupId:_groupInfo.groupId];
+                                [self.navigationController
+                                    popViewControllerAnimated:YES];
+                              }
+                              if (result == NO) {
+                                [self Alert:@"群组名称修改失败"];
+                              }
+                            }];
 }
 
 - (void)Alert:(NSString *)alertContent {
@@ -138,12 +141,11 @@
 }
 
 #pragma mark - UITextField Delegate
-- (BOOL)textField:(UITextField *)textField
-    shouldChangeCharactersInRange:(NSRange)range
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
                 replacementString:(NSString *)string {
-//  [self.rightBtn buttonIsCanClick:YES
-//                      buttonColor:[UIColor whiteColor]
-//                    barButtonItem:self.rightBtn];
+  [self.rightBtn buttonIsCanClick:YES
+                      buttonColor:[UIColor whiteColor]
+                    barButtonItem:self.rightBtn];
   return YES;
 }
 

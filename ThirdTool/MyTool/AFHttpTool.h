@@ -49,6 +49,12 @@ typedef NS_ENUM(NSInteger, RequestMethodType) {
                               success:(void (^)(id response))success
                               failure:(void (^)(NSError *err))failure;
 
+//修改群名称
++ (void)renameGroupWithGroupId:(NSString *)groupID
+                     GroupName:(NSString *)groupName
+                       success:(void (^)(id response))success
+                       failure:(void (^)(NSError *err))failure;
+
 //获取用户详细资料
 + (void)getFriendDetailsByID:(NSString *)friendId
                   WithMobile:(NSString *)mobile
@@ -94,6 +100,12 @@ typedef NS_ENUM(NSInteger, RequestMethodType) {
                     withCreatId:(NSString *)userId
                         success:(void (^)(id response))success
                         failure:(void (^)(NSError *err))failure;
+
+//退出群
++ (void)quitGroupWithGroupId:(NSString *)groupID
+                  withUserId:(NSString *)userId
+                     success:(void (^)(id response))success
+                     failure:(void (^)(NSError *err))failure;
 
 //查看我所在的所有群组
 + (void)getMyGroupsListWithUserid:(NSString *)userId

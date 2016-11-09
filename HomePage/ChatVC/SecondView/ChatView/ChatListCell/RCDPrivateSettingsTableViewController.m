@@ -35,6 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
     //设置分割线颜色
     self.tableView.separatorColor =
     [UIColor colorWithHexString:@"dfdfdf" alpha:1.0f];

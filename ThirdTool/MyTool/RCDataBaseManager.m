@@ -171,6 +171,19 @@ static NSString *const groupMemberTableName = @"GROUPMEMBERTABLE";
     return result;
 }
 
+//删除表中的群组信息
+- (void)deleteGroupToDB:(NSString *)groupId {
+    if ([groupId length] < 1)
+        return;
+    NSString *deleteSql =
+    [NSString stringWithFormat:@"delete from %@ where %@ = '%@'",
+     @"GROUPTABLEV2", @"groupid", groupId];
+    
+    [self.dbQueue inDatabase:^(FMDatabase *db) {
+        [db executeUpdate:deleteSql];
+    }];
+}
+
 //从表中获取群组成员信息
 - (NSMutableArray *)getGroupMember:(NSString *)groupId {
     NSMutableArray *allUsers = [NSMutableArray new];

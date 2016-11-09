@@ -111,6 +111,10 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     numberOfSections = 0;
     
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.frame = CGRectMake(0, 6, 87, 23);
     UIImageView *backImg = [[UIImageView alloc]
@@ -159,17 +163,17 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
     [super viewWillAppear:animated];
     [self startLoad];
     if (self.Group.number) {
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
         title.text = [NSString stringWithFormat:@"群组信息(%@)",self.Group.number];
         title.textAlignment = NSTextAlignmentCenter;
         title.textColor = [UIColor whiteColor];
-        self.title = title.text;
+        self.navigationItem.titleView = title;
     } else {
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
         title.text = @"群组信息";
         title.textAlignment = NSTextAlignmentCenter;
         title.textColor = [UIColor whiteColor];
-        self.title = title.text;
+        self.navigationItem.titleView = title;
     }
 }
 
@@ -245,12 +249,12 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
                                           
                                           if ([result count] > 0) {
                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                  UILabel *title = [[UILabel alloc] init];
+                                                  UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
                                                   title.text = [NSString stringWithFormat:@"群组信息(%lu)",(unsigned long)result.count];
                                                   title.textAlignment = NSTextAlignmentCenter;
                                                   title.textColor = [UIColor whiteColor];
                                                   
-                                                  weakSelf.title = title.text;
+                                                  weakSelf.navigationItem.titleView = title;
                                               });
                                               collectionViewResource = [NSMutableArray new];
                                               _GroupMemberList = [NSMutableArray new];
@@ -283,6 +287,7 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
                                   forState:UIControlStateNormal];
     [_btJoinOrQuitGroup setBackgroundImage:quitImageSelected
                                   forState:UIControlStateSelected];
+    [_btJoinOrQuitGroup setBackgroundColor:[UIColor colorWithRed:231.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0]];
     [_btJoinOrQuitGroup setTitle:@"删除并退出" forState:UIControlStateNormal];
     [_btJoinOrQuitGroup setCenter:CGPointMake(view.bounds.size.width / 2,
                                               view.bounds.size.height / 2)];
@@ -301,7 +306,7 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
     [_btDismissGroup setBackgroundImage:quitImageSelected
                                forState:UIControlStateSelected];
     [_btDismissGroup setTitle:@"解散并删除" forState:UIControlStateNormal];
-    [_btDismissGroup setBackgroundColor:[UIColor orangeColor]];
+    [_btDismissGroup setBackgroundColor:[UIColor colorWithRed:231.0/255.0 green:42.0/255.0 blue:48.0/255.0 alpha:1.0]];
     [_btDismissGroup setCenter:CGPointMake(view.bounds.size.width / 2,
                                            view.bounds.size.height / 2)];
     [_btDismissGroup addTarget:self
@@ -323,8 +328,7 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
     if (isCreator == YES) {
         [_btDismissGroup setHidden:NO];
         [_btJoinOrQuitGroup setHidden:YES];
-        [view
-         addConstraints:[NSLayoutConstraint
+        [view addConstraints:[NSLayoutConstraint
                          constraintsWithVisualFormat:@"V:|-29-[_"
                          @"btDismissGroup(42)]"
                          options:0
@@ -337,8 +341,7 @@ static NSString *CellIdentifier = @"RCDBaseSettingTableViewCell";
                               metrics:nil
                               views:views]];
     } else {
-        [view
-         addConstraints:[NSLayoutConstraint
+        [view addConstraints:[NSLayoutConstraint
                          constraintsWithVisualFormat:@"V:|-29-[_"
                          @"btJoinOrQuitGroup(42)]"
                          options:0
@@ -431,11 +434,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     //                                complete:^(BOOL result) {
     //                                  if (result == YES) {
     //                                    dispatch_async(dispatch_get_main_queue(), ^{
-    //                                      RCDBaseSettingTableViewCell *cell =
-    //                                          (RCDBaseSettingTableViewCell *)
-    //                                              [self.tableView viewWithTag:1000];
-    //                                        [cell.rightImageView sd_setImageWithURL:[NSURL URLWithString:self.Group.portraitUri]];
-    //                                      cell.PortraitImg.image = image;
+//                                          RCDBaseSettingTableViewCell *cell =
+//                                              (RCDBaseSettingTableViewCell *)
+//                                                  [self.tableView viewWithTag:1000];
+//                                            [cell.rightImageView sd_setImageWithURL:[NSURL URLWithString:self.Group.portraitUri]];
+//                                          cell.PortraitImg.image = image;
     //关闭HUD
     //                                      [hud hide:YES];
     //                                    });
@@ -567,35 +570,32 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     }
     if (actionSheet.tag == 101) {
         if (buttonIndex == 0) {
-            //      [RCDHTTPTOOL
-            //          quitGroupWithGroupId:groupId
-            //                      complete:^(BOOL isOk) {
-            //
-            //                        dispatch_async(dispatch_get_main_queue(), ^{
-            //                          if (isOk) {
-            //                            [[RCIMClient sharedRCIMClient]
-            //                                clearMessages:ConversationType_GROUP
-            //                                     targetId:groupId];
-            //
-            //                            [[RCIMClient sharedRCIMClient]
-            //                                removeConversation:ConversationType_GROUP
-            //                                          targetId:groupId];
-            //
-            ////                            [[RCDataBaseManager shareInstance]
-            ////                                deleteGroupToDB:groupId];
-            //                            [self.navigationController
-            //                                popToRootViewControllerAnimated:YES];
-            //                          } else {
-            //                            UIAlertView *alertView = [[UIAlertView alloc]
-            //                                    initWithTitle:nil
-            //                                          message:@"退出失败！"
-            //                                         delegate:nil
-            //                                cancelButtonTitle:@"确定"
-            //                                otherButtonTitles:nil, nil];
-            //                            [alertView show];
-            //                          }
-            //                        });
-            //                      }];
+            [RCDHTTPTOOL quitGroupWithGroupId:groupId
+                                   withUserId:[USER_D objectForKey:@"user_id"]
+                                     complete:^(BOOL isOk) {
+                                         
+                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                             if (isOk) {
+                                                 [[RCIMClient sharedRCIMClient] clearMessages:ConversationType_GROUP
+                                                                                     targetId:groupId];
+                                                 
+                                                 [[RCIMClient sharedRCIMClient] removeConversation:ConversationType_GROUP
+                                                                                          targetId:groupId];
+                                                 
+                                                 [[RCDataBaseManager shareInstance] deleteGroupToDB:groupId];
+                                                                                                  
+                                                 [self.navigationController popToRootViewControllerAnimated:YES];
+                                             } else {
+                                                 UIAlertView *alertView = [[UIAlertView alloc]
+                                                                           initWithTitle:nil
+                                                                           message:@"退出失败！"
+                                                                           delegate:nil
+                                                                           cancelButtonTitle:@"确定"
+                                                                           otherButtonTitles:nil, nil];
+                                                 [alertView show];
+                                             }
+                                         });
+                                     }];
         }
     }
     if (actionSheet.tag == 102) {
@@ -677,8 +677,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     if (indexPath.section == 0) {
         [cell setCellStyle:DefaultStyle];
-        
-        cell.leftLabel.text = [NSString stringWithFormat:@"全部群成员(%@)", _Group.number];
+        NSString *numStr = [NSString jsonUtils:_Group.number];
+        cell.leftLabel.text = [NSString stringWithFormat:@"全部群成员(%@)", numStr];
     }else if(indexPath.section == 1){
         switch (indexPath.row) {
 //            case 0:
@@ -772,18 +772,17 @@ heightForHeaderInSection:(NSInteger)section {
             switch (indexPath.row) {
                 case 0:
                 {
-                    if (isCreator == YES) {
-                        //如果是创建者，进入修改群名称页面
+//                    if (isCreator == YES) {
+//                        //如果是创建者，进入修改群名称页面
                         RCDEditGroupNameViewController *editGroupNameVC = [RCDEditGroupNameViewController editGroupNameViewController];
                         editGroupNameVC.groupInfo = _Group;
                         _Group = nil;
-                        [self.navigationController pushViewController:editGroupNameVC
-                                                             animated:YES];
-                    }
-                    else
-                    {
-                        [self showAlert:@"只有群主可以修改群组名称"];
-                    }
+                        [self.navigationController pushViewController:editGroupNameVC animated:YES];
+//                    }
+//                    else
+//                    {
+//                        [self showAlert:@"只有群主可以修改群组名称"];
+//                    }
                 }break;
                     
                 case 1:
@@ -908,7 +907,12 @@ heightForHeaderInSection:(NSInteger)section {
     if (isCreator == YES) {
         //点加号
         if (indexPath.row == collectionViewResource.count - 2) {
-            contactSelectedVC.titleStr = @"选择联系人";
+            UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+            title.text = @"选择联系人";
+            title.textAlignment = NSTextAlignmentCenter;
+            title.textColor = [UIColor whiteColor];
+            contactSelectedVC.navigationItem.titleView = title;
+//            contactSelectedVC.titleStr = @"选择联系人";
             contactSelectedVC.addGroupMembers = membersId;
             _Group = nil;
             [self.navigationController pushViewController:contactSelectedVC
@@ -917,7 +921,12 @@ heightForHeaderInSection:(NSInteger)section {
         }
         //点减号
         if (indexPath.row == collectionViewResource.count - 1) {
-            contactSelectedVC.titleStr = @"移除成员";
+            UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+            title.text = @"移除成员";
+            title.textAlignment = NSTextAlignmentCenter;
+            title.textColor = [UIColor whiteColor];
+            contactSelectedVC.navigationItem.titleView = title;
+//            contactSelectedVC.titleStr = @"移除成员";
             NSMutableArray *members = [NSMutableArray new];
             for (RCUserInfo *user in _GroupMemberList) {
                 if (![user.userId isEqualToString:creatorId]) {
@@ -933,7 +942,12 @@ heightForHeaderInSection:(NSInteger)section {
     } else {
         if (indexPath.row == collectionViewResource.count - 1) {
             NSLog(@"点加号");
-            contactSelectedVC.titleStr = @"选择联系人";
+            UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+            title.text = @"选择联系人";
+            title.textAlignment = NSTextAlignmentCenter;
+            title.textColor = [UIColor whiteColor];
+            contactSelectedVC.navigationItem.titleView = title;
+//            contactSelectedVC.titleStr = @"选择联系人";
             contactSelectedVC.addGroupMembers = membersId;
             [self.navigationController pushViewController:contactSelectedVC
                                                  animated:YES];

@@ -183,6 +183,21 @@
                           failure:failure];
 }
 
++ (void)renameGroupWithGroupId:(NSString *)groupID
+                     GroupName:(NSString *)groupName
+                       success:(void (^)(id response))success
+                       failure:(void (^)(NSError *err))failure {
+    NSDictionary *params = @{
+                             @"group_id" : groupID,
+                              @"name" : groupName
+                             };
+    [AFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:XGroupNameEditURL
+                           params:params
+                          success:success
+                          failure:failure];
+}
+
 + (void)getGroupMembersByID:(NSString *)groupID
                     success:(void (^)(id response))success
                     failure:(void (^)(NSError *err))failure {
@@ -238,6 +253,21 @@
                              };
     [AFHttpTool requestWihtMethod:RequestMethodTypePost
                               url:XDelGroupURL
+                           params:params
+                          success:success
+                          failure:failure];
+}
+
++ (void)quitGroupWithGroupId:(NSString *)groupID
+                  withUserId:(NSString *)userId
+                     success:(void (^)(id response))success
+                     failure:(void (^)(NSError *err))failure {
+    NSDictionary *params = @{
+                             @"id" : groupID,
+                             @"user_id" : userId
+                             };
+    [AFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:XOutGroupUserURL
                            params:params
                           success:success
                           failure:failure];

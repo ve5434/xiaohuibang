@@ -423,7 +423,7 @@
         }
     }
 }
-
+ 
 //插入自定义会话model
 - (NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource {
     for (int i = 0; i < dataSource.count; i++) {
@@ -532,7 +532,12 @@
                                    RCDContactSelectedTableViewController *contactSelectedVC = [[RCDContactSelectedTableViewController alloc]init];
                                    contactSelectedVC.forCreatingGroup = YES;
                                    contactSelectedVC.isAllowsMultipleSelection = YES;
-                                   contactSelectedVC.titleStr = @"选择联系人";
+                                   UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+                                   title.text = @"选择联系人";
+                                   title.textAlignment = NSTextAlignmentCenter;
+                                   title.textColor = [UIColor whiteColor];
+                                   contactSelectedVC.navigationItem.titleView = title;
+//                                   contactSelectedVC.titleStr = @"选择联系人";
                                    contactSelectedVC.hidesBottomBarWhenPushed = YES;
                                    [self.navigationController pushViewController:contactSelectedVC animated:YES];
                                }
