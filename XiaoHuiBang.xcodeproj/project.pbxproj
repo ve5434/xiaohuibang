@@ -44,6 +44,9 @@
 		049BD8871DD2C94500957AF4 /* icon_switchcamera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8851DD2C94500957AF4 /* icon_switchcamera@3x.png */; };
 		049BD88A1DD2CAD500957AF4 /* icon_flash_open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8881DD2CAD500957AF4 /* icon_flash_open@2x.png */; };
 		049BD88B1DD2CAD500957AF4 /* icon_flash_open@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8891DD2CAD500957AF4 /* icon_flash_open@3x.png */; };
+		049BD8901DD2F6AF00957AF4 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 049BD88F1DD2F6AF00957AF4 /* sound.mp3 */; };
+		049BD8951DD3036D00957AF4 /* FromSystemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BD8931DD3036D00957AF4 /* FromSystemController.m */; };
+		049BD8961DD3036D00957AF4 /* FromSystemController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049BD8941DD3036D00957AF4 /* FromSystemController.xib */; };
 		DB7F902B3A8335807EDD4AA1 /* libPods-XiaoHuiBang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */; };
 		F306DE831DD096360034BA65 /* UsersToTheirOwnGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F306DE811DD096360034BA65 /* UsersToTheirOwnGroupViewController.m */; };
 		F306DE841DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F306DE821DD096360034BA65 /* UsersToTheirOwnGroupViewController.xib */; };
@@ -324,6 +327,10 @@
 		049BD8851DD2C94500957AF4 /* icon_switchcamera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_switchcamera@3x.png"; sourceTree = "<group>"; };
 		049BD8881DD2CAD500957AF4 /* icon_flash_open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_flash_open@2x.png"; sourceTree = "<group>"; };
 		049BD8891DD2CAD500957AF4 /* icon_flash_open@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_flash_open@3x.png"; sourceTree = "<group>"; };
+		049BD88F1DD2F6AF00957AF4 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
+		049BD8921DD3036D00957AF4 /* FromSystemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromSystemController.h; sourceTree = "<group>"; };
+		049BD8931DD3036D00957AF4 /* FromSystemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromSystemController.m; sourceTree = "<group>"; };
+		049BD8941DD3036D00957AF4 /* FromSystemController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FromSystemController.xib; sourceTree = "<group>"; };
 		8F5B587656139CFD557E4D67 /* Pods-XiaoHuiBang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.release.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.release.xcconfig"; sourceTree = "<group>"; };
 		A01A17214919735FFEBF2768 /* Pods-XiaoHuiBang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaoHuiBang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XiaoHuiBang/Pods-XiaoHuiBang.debug.xcconfig"; sourceTree = "<group>"; };
 		D16C0070D282AEAB61DF474D /* libPods-XiaoHuiBang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XiaoHuiBang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -706,6 +713,7 @@
 				049BD80F1DD161DC00957AF4 /* FriendsCircleViewController.m */,
 				049BD8131DD1622C00957AF4 /* SendMoments */,
 				049BD83D1DD1CE8E00957AF4 /* FromCamera */,
+				049BD8911DD3033B00957AF4 /* FromSystem */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -713,6 +721,7 @@
 		049BD8101DD161DC00957AF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				049BD88F1DD2F6AF00957AF4 /* sound.mp3 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -743,6 +752,16 @@
 				049BD8401DD1CEA200957AF4 /* FromCameraController.xib */,
 			);
 			path = FromCamera;
+			sourceTree = "<group>";
+		};
+		049BD8911DD3033B00957AF4 /* FromSystem */ = {
+			isa = PBXGroup;
+			children = (
+				049BD8921DD3036D00957AF4 /* FromSystemController.h */,
+				049BD8931DD3036D00957AF4 /* FromSystemController.m */,
+				049BD8941DD3036D00957AF4 /* FromSystemController.xib */,
+			);
+			path = FromSystem;
 			sourceTree = "<group>";
 		};
 		636C67FCAA54B97F2A97C8C5 /* Frameworks */ = {
@@ -1546,6 +1565,7 @@
 				F3EBC4A71D9A6B7700E93C02 /* ceshi.png in Resources */,
 				F3E3E9521D9B68BB00E69300 /* RegistAgreementViewController.xib in Resources */,
 				F33F899F1D9E534800FB0F70 /* photo_profile@2x.png in Resources */,
+				049BD8961DD3036D00957AF4 /* FromSystemController.xib in Resources */,
 				F3D906DE1DC74F1000E742D2 /* delete_members@2x.png in Resources */,
 				F33F89B61D9E6C2600FB0F70 /* UserInfomationTableViewCell.xib in Resources */,
 				F3EBC48E1D9A471D00E93C02 /* icon_closed@3x.png in Resources */,
@@ -1626,6 +1646,7 @@
 				F33F89751D9E47E700FB0F70 /* icon_profile_unselected@3x.png in Resources */,
 				049BD8821DD2C89900957AF4 /* icon_flash_close@2x.png in Resources */,
 				F3E3E9501D9B68BB00E69300 /* PasswordViewController.xib in Resources */,
+				049BD8901DD2F6AF00957AF4 /* sound.mp3 in Resources */,
 				F33F89A01D9E534800FB0F70 /* photo_profile@3x.png in Resources */,
 				049BD8771DD2BD4D00957AF4 /* icon_focus@3x.png in Resources */,
 				F33F89901D9E4EA600FB0F70 /* icon_about@3x.png in Resources */,
@@ -1727,6 +1748,7 @@
 				F3E3E9511D9B68BB00E69300 /* RegistAgreementViewController.m in Sources */,
 				F3A0E0261DB75A2200E9F12C /* MLLetterIndexNavigationItem.m in Sources */,
 				F3E3E9721D9BCE2600E69300 /* PersonageViewController.m in Sources */,
+				049BD8951DD3036D00957AF4 /* FromSystemController.m in Sources */,
 				F35B23F51DAE31E6009EFE77 /* SearchListViewController.m in Sources */,
 				F3A0E0271DB75A2200E9F12C /* MLLetterIndexNavigationView.m in Sources */,
 				F3A0E02A1DB761B300E9F12C /* GroupOfNewsViewController.m in Sources */,
